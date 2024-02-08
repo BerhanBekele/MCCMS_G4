@@ -15,17 +15,19 @@
 <body>
     <div class="row g-0">
         <!-- sidebar -->
-        <div class="p-3 vh-100 col-lg-3 fixed text-white bg-dark">
+        <div class="p-3 vh-100 col-lg-2 fixed text-white bg-dark">
             <a href="{{ route('admin.home.index') }}" class="text-white text-decoration-none">
-                <span class="fs-4">Admin Panel</span>
+                <span class="fs-4"><h3> Admin Panel<h3> </span>
             </a>
             <hr />
             <ul class="nav flex-column sidebar">
-                <li><a href="{{ route('admin.home.index') }}" class="nav-link text-white">- Admin - Home</a></li>
-                <li><a href="{{ route('admin.case.asign') }}" class="nav-link text-white">- Admin - Asign</a></li>
-                {{-- <li><a href="#" class="nav-link text-white">- Admin - User</a></li> --}}
-                <li><a href="{{ route('admin.role.index') }}" class="nav-link text-white">- Admin - User</a></li>
-                <li> <a href="{{ route('home.index') }}" class="mt-2 btn bg-primary text-white">Go back to the home page</a></li>
+
+                <li><a href="{{ route('admin.home.index') }}" class="nav  mt-3 btn bg-primary text-white"><h4>  Home </h4></a></li>
+                <li><a href="{{ route('admin.case.asign') }}" class="nav mt-3 btn bg-primary text-white"> <h4>  Manage - Cases </h4></a></li>
+                <li><a href="{{route('register')}}" class="nav mt-3 btn bg-primary text-white"><h4>Register New User </h4></a> </li>
+                <li><a href="{{ route('admin.role.index') }}" class="nav mt-3 btn bg-primary text-white"><h4> Admin  User </h4></a></li>
+                <li> <a href="{{ route('home.index') }}" class="nav mt-3 btn bg-primary text-white"><h4> Go back to the home page </h4></a></li>
+
             </ul>
         </div>
         <!-- sidebar -->
@@ -44,7 +46,7 @@
             <small>
                 Copyright - <a class="text-reset fw-bold text-decoration-none" target="_blank"
                     href="https://twitter.com/user">
-                    XYZ Company
+                    MoND Developer Group 4
                 </a>
             </small>
         </div>

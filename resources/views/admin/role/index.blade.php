@@ -2,8 +2,20 @@
 @section('title',$viewData['title'])
 @section('content')
     <div class="card-header">
-        Manage Users
+        <h2>   Manage Users </h2>
     </div>
+
+    <div class="card-body">
+          @if ($errors->any())
+            <ul class="alert alert-danger list-unstyled">
+                @foreach ($errors->all() as $error)
+                    <li>* {{ $error }}</li>
+                @endforeach
+            </ul>
+        @endif
+        {{-- <form method="POST" action="{{ route('admin.case.save') }}" enctype="multipart/form-data">
+
+            @csrf --}}
         <div class="card">
             {{-- <div class= "card-body">
                 <div>
@@ -20,7 +32,7 @@
                             <th scope="col">User Name</th>
                             <th scope="col">E-Mail</th>
                             <th scope="col">Granted Role</th>
-                            <th scope="col">Account Balance</th>
+                            {{-- <th scope="col">Account Balance</th> --}}
                         </tr>
                     </thead>
                     <tbody>
@@ -30,7 +42,7 @@
                                 <td>{{$user->name}}</td>
                                 <td>{{$user->email}}</td>
                                 <td>{{$user->role->role}}</td>
-                                <td>{{$user->balance}}</td>
+                                {{-- <td>{{$user->balance}}</td> --}}
                                 <td>
                                     <a href="{{ route('admin.role.edit',['id' => $user->id]) }}">
                                             <button class="btn btn-primary">
@@ -39,18 +51,17 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <form action="{{ route('admin.role.delete',$user->id) }}" method="POST">
+                                    <a href="{{ route('admin.role.delete',$user->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn btn-danger">
                                             <i class="bi-trash"></i>
                                         </button>
-                                    </form>
                                 </td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
             </div>
-        </div>
+    </div>
 @endsection

@@ -44,9 +44,7 @@ Route::get('delete','App\Http\Controllers\Admin\AdminCaseController@delete')->na
 Route::get('asign','App\Http\Controllers\Admin\AdminCaseController@asign')->name("admin.case.asign");
 Route::put('/case/{id}/update','App\Http\Controllers\Admin\AdminCaseController@update')->name("admin.case.update");
 Route::get('/case/{id}/edit','App\Http\Controllers\Admin\AdminCaseController@edit')->name("admin.case.edit");
-Route::get('delete','App\Http\Controllers\AdminCaseController@delete')->name("admin.case.delete");
-
-
+Route::get('/case/{id}/delete','App\Http\Controllers\Admin\AdminCaseController@delete')->name("admin.case.delete");
 
 Route::get('/products','App\Http\Controllers\ProductController@index')->name("products.index");
 Route::get('/products/{id}','App\Http\Controllers\ProductController@show')->name("products.show");
@@ -63,13 +61,14 @@ Route::middleware('admin')->prefix('/admin')->group(function() {
     Route::get('/products','App\Http\Controllers\Admin\AdminProductController@index')->name("admin.product.index");
     Route::post('/products/store','App\Http\Controllers\Admin\AdminProductController@store')->name("admin.product.store");
     Route::get('/products/create','App\Http\Controllers\Admin\AdminProductController@create')->name("admin.product.create");
-    Route::delete('/products/{id}/delete','App\Http\Controllers\Admin\AdminProductController@delete')->name("admin.product.delete");
+    Route::get('/products/{id}/delete','App\Http\Controllers\Admin\AdminProductController@delete')->name("admin.product.delete");
     Route::get('/products/{id}/edit','App\Http\Controllers\Admin\AdminProductController@edit')->name("admin.product.edit");
     Route::put('/products/{id}/update','App\Http\Controllers\Admin\AdminProductController@update')->name("admin.product.update");
     Route::get('/role','App\Http\Controllers\Admin\AdminRoleController@index')->name("admin.role.index");
     Route::get('/role/{id}/edit','App\Http\Controllers\Admin\AdminRoleController@edit')->name("admin.role.edit");
     Route::put('/role/{id}/update','App\Http\Controllers\Admin\AdminRoleController@update')->name("admin.role.update");
-    Route::get('/role/{id}/delete','App\Http\Controllers\Admin\AdminRoleController@edit')->name("admin.role.delete");
+    Route::get('/role/{id}/delete','App\Http\Controllers\Admin\AdminRoleController@delete')->name("admin.role.delete");
+
     });
 
 Auth::routes();

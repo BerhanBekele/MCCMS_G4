@@ -39,25 +39,24 @@
                                 <td>{{$case->court_name}}</td>
 
 
-                                 @if(Auth::user()->role->role=='admin')
+                                @if(Auth::user()->role->role=='admin')
                                     <td>
                                         <a href="{{ route('admin.case.edit',['id' => $case->id]) }}">
                                                     <button class="btn btn-primary">
                                                     <i class="bi-pencil"></i>
                                                     </button>
-                                            </a>
-                                        </td>
-                                <td>
-                                  <form action="{{ route('admin.case.delete',$case->id) }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button class="btn btn-danger">
-                                            <i class="bi-trash"></i>
-                                        </button>
-                                    </form>
-                            @endif
-
-                                </td>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('admin.case.delete',$case->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-danger">
+                                                <i class="bi-trash"></i>
+                                            </button>
+                                        </a>
+                                    </td>
+                                  @endif
                             </tr>
                         @endforeach
                     </tbody>

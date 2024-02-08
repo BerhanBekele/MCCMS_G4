@@ -69,7 +69,7 @@
                     </div>
                     </div>
                     </div>
-                    <div class="col">
+                    {{-- <div class="col">
                         <div class="mb-3 row">
                             <label class="col-lg-2 col-md-6 col-sm-12 col-form-label">Balance:</label>
                             <div class="col-lg-10 col-md-6 col-sm-12">
@@ -77,7 +77,7 @@
                                     class="form-control">
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
                 <div>
                     <button type="submit" class="btn btn-primary">Edit</button>

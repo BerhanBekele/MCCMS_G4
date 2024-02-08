@@ -2,7 +2,7 @@
 @section('title', $viewData['title'])
 @section('content')
     <div class="card mb-4">
-        <div class="card-header"> Edit Case</div>
+        <div class="card-header"> <h2> Manage Case</div>
         <div class="card-body">
             @if ($errors->any())
                 <ul class="alert alert-danger list-unstyled">
@@ -71,8 +71,10 @@
                      --}}
 
                 </div>
+                <button class="btn btn-primary"  type="submit">
+                    <i class="bi-pencil"></i> Edit
+                </button>
 
-                <button type="submit" class="btn btn-primary">Edit</button>
             </form>
         </div>
     </div>

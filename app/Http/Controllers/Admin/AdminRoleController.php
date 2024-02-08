@@ -24,8 +24,7 @@ class AdminRoleController extends Controller
     // }
     public function delete($id){
         User::destroy($id);
-        return back();
-        // ->with('success','Succees Deletion!');
+        return back()->with('success','Succees Deletion!');
 
 }
 public function edit($id){
@@ -41,7 +40,7 @@ public function update(Request $request,$id){
     $user->name=$request->input('name');
     $user->email=$request->input('email');
     $user->role_id=$request->input('role');
-    $user->balance=$request->input('balance');
+   // $user->balance=$request->input('balance');
     $user->save();
         return redirect()->route('admin.role.index');
 

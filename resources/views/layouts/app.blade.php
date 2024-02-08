@@ -28,7 +28,6 @@
                     <div class=" vr bg-with mx-2 d-none d-lg-block"></div>
                     @guest
                     <a class="nav-link active" href="{{route('login')}}">Login</a>
-                    <a class ="nav-link active" href="{{route('register')}}">Register</a>
                     @else
                     {{-- <a class ="nav-link active" href="{{route('admin.case.create')}}">Create New Cases</a>
                       <a class ="nav-link active" href="{{route('myaccount.orders')}}">My Cases</a> --}}
