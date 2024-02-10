@@ -27,3 +27,24 @@ hr {
    background-color: #f8f9fc;
    border-bottom: 1px solid #e3e6f0;
 }
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0%;
+    width: 100%;
+    background-color: #1a252f; /* Adjust as needed */
+    color: white; /* Adjust as needed */
+    padding: 10px 0; /* Adjust padding as needed */
+    text-align: center;
+}
+.sidebar {
+    position: fixed; /* Fix the position */
+    top: 0; /* Position it at the top of the viewport */
+    left: 0; /* Position it at the left of the viewport */
+    width: 250px; /* Set the width of the sidebar */
+    height: 100%; /* Set the height to fill the entire viewport */
+    /*background-color: #f1f1f1; /* Example background color, adjust as needed */
+    background-color: #1a252f; /* Adjust as needed */
+    overflow-y: auto; /* Enable vertical scrolling if content exceeds the height */
+}

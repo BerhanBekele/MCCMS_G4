@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.judge')
 @section('title', $viewData['title'])
 @section('content')
     <div class="card mb-4">
@@ -30,17 +30,18 @@
                         <textarea class="form-control" name="case_description" rows="3">{{ $viewData['case']->case_description }}</textarea>
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <label class="col-lg-2 col-md-6 col-sm-12 col-form-label">Case Status:</label>
                         <select  id="case_status" class="form-control form-select @error('caseType') is-invalid @enderror" name="case_status">
                          <option value="{{ $viewData['case']->case_status }}" selected>{{ $viewData['case']->case_status }}</option>
                          <option value="Started">Started</option>
                          <option value="On Progress">On Progress</option>
                          <option value="Postponded">Postponded</option>
+                         <option value="terminated">Terminated</option>
                          <option value="Complitted">Complitted</option>
                      </select>
                     </div>
-                     <div class="col-md-4">
+                     <div class="col-md-3">
                         <label class="col-lg-2 col-md-6 col-sm-12 col-form-label">Asign Judge:</label>
                         <select  id="judge_id" class="form-control form-select @error('case') is-invalid @enderror" name="judge_id">
                          <option value="{{ $viewData['case']->judge->id }}" selected>{{ $viewData['case']->judge->judge_name }} </option>
@@ -50,7 +51,7 @@
                            @endforeach
                      </select>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <label class="col-lg-2 col-md-6 col-sm-12 col-form-label">Select Court:</label>
                         <select  id="judge_id" class="form-control form-select @error('case') is-invalid @enderror" name="court_id">
                          <option value="{{ $viewData['case']->court->id }}" selected>{{ $viewData['case']->court->court_name }} </option>
@@ -59,6 +60,10 @@
 
                            @endforeach
                      </select>
+                    </div>
+                    <div class="col-md-3">
+                    <label class="col-lg-4 col-md-6 col-sm-12 col-form-label">Appointment Date:</label>
+                    <input name="updated_at" value="{{ $viewData['case']->updated_at }}" type="datetime-local"  class="form-control">
                     </div>
                     {{-- <div class="col-md-4">
                         <label class="col-lg-2 col-md-6 col-sm-12 col-form-label">Select Court:</label>

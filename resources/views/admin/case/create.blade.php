@@ -34,33 +34,17 @@
                             <textarea class="form-control" name="case_description" rows="3" value="case_description" >{{ old('case_description') }}</textarea>
                        </div>
                        <div class="mb-3">
-                            <label class="form-label">E-Mail Address</label>
+                            <label class="form-label">Case Submit Client Name</label>
+                            <input name="client_id" value="{{ old('client_id') }}" type="text" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Case Owner E-Mail Address</label>
                             <input name="email" value="{{ old('email') }}" type="text" class="form-control">
                         </div>
                    </div>
-                   {{-- <div class="col">
-                       <div class="mb-3 row">
-                           <label class="col-lg-2 col-md-6 col-sm-12 col-form-label">Price:</label>
-                           <div class="col-lg-10 col-md-6 col-sm-12">
-                               <input name="price" value="{{ old('price') }}" type="number" class="form-control">
-                           </div>
-                       </div>
-                   </div> --}}
-               </div>
-               {{-- <div class="row">
-                   <div class="col">
-                       <div class="mb-3 row">
-                           <label class="col-lg-2 col-md-6 col-sm-12 col-form-label">Image:</label>
-                           <div class="col-lg-10 col-md-6 col-sm-12">
-                               <input class="form-control" type="file" name="image">
-                           </div>
-                       </div>
-                   </div>
-                   <div class="col"> &nbsp;
-                   </div>
-               </div> --}}
-
-               <button type="submit" class="btn btn-primary">Submit</button>
+                   <div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
            </form>
        </div>
    </div>

@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-use App\Models\Court;
 use App\Models\Cases;
+use App\Models\Court;
 use App\Models\Judge;
+use App\Models\Client;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -15,7 +16,8 @@ class AdminCaseController extends Controller
     public function clientCases(){
 
         $email = Auth::user()->email;
-        echo "logged-in user email address:".$email;
+        $name = Auth::user()->name;
+        echo "<b><i>You are logged-in user name:".$name."</i></b>";
         $email=[$email];
         $viewData=[];
         $viewData["title"] = "Created Cases";
@@ -29,9 +31,6 @@ class AdminCaseController extends Controller
         $viewData["cases"] = Cases::all();
         return view('admin.case.index')->with("viewData",$viewData);
 
-
-
-
     }
 
     public function asign(){
@@ -42,6 +41,7 @@ class AdminCaseController extends Controller
                                   ->join('court', 'cases.court_id', '=', 'court.id')
         ->select('cases.*', 'judge.judge_name as judge_name', 'court.court_name as court_name')
         ->get();
+        $viewData["client"] = Client::all();
 
         return view('admin.case.asign')->with("viewData",$viewData);
     }
@@ -81,6 +81,7 @@ public function save(Request $request){
         $case->case_status=$request->input('case_status');
         $case->judge_id=$request->input('judge_id');
         $case->court_id=$request->input('court_id');
+        $case->updated_at=$request->input('updated_at');
         $case->save();
         return redirect()->route('admin.case.asign');
 

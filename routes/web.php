@@ -46,11 +46,19 @@ Route::put('/case/{id}/update','App\Http\Controllers\Admin\AdminCaseController@u
 Route::get('/case/{id}/edit','App\Http\Controllers\Admin\AdminCaseController@edit')->name("admin.case.edit");
 Route::get('/case/{id}/delete','App\Http\Controllers\Admin\AdminCaseController@delete')->name("admin.case.delete");
 
+Route::get('asignedCases','App\Http\Controllers\Admin\AdminJudgeController@asignedCases')->name("admin.judge.asignedCases");
+Route::get('/judge/{id}/editCase','App\Http\Controllers\Admin\AdminJudgeController@editCase')->name("admin.judge.editCase");
+Route::put('/judge/{id}/updateCase','App\Http\Controllers\Admin\AdminJudgeController@updateCase')->name("admin.judge.updateCase");
+Route::get('/client/{id}/show','App\Http\Controllers\Admin\AdminClientController@show')->name("admin.client.show");
+
+// Route::get('/','App\Http\Controllers\Admin\AdminJudgeController@AsignedCases')->name("admin.judge.AsignedCases");
+
 Route::get('/products','App\Http\Controllers\ProductController@index')->name("products.index");
 Route::get('/products/{id}','App\Http\Controllers\ProductController@show')->name("products.show");
 Route::get('/cart','App\Http\Controllers\CartController@index')->name("cart.index");
 Route::get('/cart/delete','App\Http\Controllers\CartController@delete')->name("cart.delete");
 Route::post('/cart/add{id}','App\Http\Controllers\CartController@add')->name("cart.add");
+
 
 Route::middleware("auth")->group(function () {
     Route::get('/cart/purchase','App\Http\Controllers\CartController@purchase')->name("cart.purchase");

@@ -4,15 +4,16 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        crossorigin="anonymous" />
-    <link href="{{ asset('/css/app.css') }}" rel="stylesheet" />
+    <link href="{{ asset('/css/admin.css') }}" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="icon" href="{{ asset('/images/justicLogo.png') }}" type="image/x-icon">
     <title>@yield('title', 'Military Court Case Managment System')</title>
 </head>
 
 <body>
     <!-- header -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary py-4">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary py-1">
         <div class="container">
             <a class="navbar-brand" href="#"> {{ __('Military Court Case Managment System') }} </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
@@ -29,11 +30,13 @@
                     @guest
                     <a class="nav-link active" href="{{route('login')}}">Login</a>
                     @else
-                    {{-- <a class ="nav-link active" href="{{route('admin.case.create')}}">Create New Cases</a>
-                      <a class ="nav-link active" href="{{route('myaccount.orders')}}">My Cases</a> --}}
                       <a class ="nav-link active" href="{{route('admin.case.index')}}">My Cases</a>
                         @if(Auth::user()->role->role=='admin')
-                            <a class="nav-link active" href="{{route('admin.home.index')}}">Dashboard</a>
+                            <a class="nav-link active" href="{{route('admin.home.index')}}">Admin Dashboard</a>
+                        @endif
+
+                        @if(Auth::user()->role->role=='judge')
+                        <a class="nav-link active" href="{{route('admin.judge.asignedCases')}}">Cases Dashboard</a>
                         @endif
 
                         <form id="logout" action="{{route('logout')}}" method="POST">
@@ -48,16 +51,11 @@
         </div>
     </nav>
 
-    {{-- <header class="masthead bg-primary text-white text-center py-4">
-        <div class="container d-flex align-items-center flex-column">
-            <h2>@yield('subtitle', 'A Laravel Online Store')</h2>
-        </div>
-    </header> --}}
-    <!-- header -->
+    <!-- Footer -->
     <div class="container my-4">
         @yield('content')
     </div>
-    <div class=" py-4 text-center text-white footer">
+    <div class="py-1 text-center text-white footer">
         <div class="container">
             <small class="copyright">
                 Copyright - <a class="text-reset fw-bold text-decoration-none" target="_blank"

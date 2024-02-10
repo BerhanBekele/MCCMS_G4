@@ -6,13 +6,6 @@
     </div>
         <div class="card">
             <div class= "card-body">
-                {{-- <div>
-                    <a href="{{ route('admin.case.create')}}">
-                        <button type="button" class="btn btn-primary float-end">
-                            create Case
-                        </button>
-                    </a>
-                </div> --}}
                 <table class= "table table-bordered table-striped">
                     <thead>
                         <tr>
@@ -20,13 +13,13 @@
                             <th scope="col">Case Type</th>
                             <th scope="col">Case Description</th>
                             <th scope="col">Case Status</th>
+                            <th scope="col">Case Client </th>
                             <th scope="col">Case Created Date</th>
                             <th scope="col">Asign Judge</th>
                             <th scope="col">Court</th>
-                            <th scope="col">Case Appointment Date</th>
-                            <th scope="col">Client Info</th>
-                            <th scope="col">Manage</th>
-                            <th scope="col">Delete</th>
+                            <th scope="col">Appointment Date</th>
+                            <th scope="col">Edit Case Desc</th>
+                            {{-- <th scope="col">Delete</th> --}}
 
                         </tr>
                     </thead>
@@ -37,29 +30,24 @@
                                 <td>{{$case->case_type}}</td>
                                 <td>{{$case->case_description}}</td>
                                 <td>{{$case->case_status}}</td>
+                                @foreach($viewData['client'] as $client)
+                                <td>{{$client->client_name}}</td>
+                                 @endforeach
                                 <td>{{$case->created_at}}</td>
                                 <td>{{$case->judge_name}}</td>
                                 <td>{{$case->court_name}}</td>
                                 <td>{{$case->updated_at}}</td>
-                                @foreach($viewData['client'] as $client)
-                                <td>
-                                    <a href="{{ route('admin.client.show',['id' => $client->id]) }}">
-                                        <button class="btn btn-primary">
-                                        <i class="bi-info"></i>
-                                        </button>
 
-                               </td>
-                                 @endforeach
 
                                 @if(Auth::user()->role->role=='judge')
                                     <td>
-                                        <a href="{{ route('admin.case.edit',['id' => $case->id]) }}">
+                                        <a href="{{ route('admin.judge.editCase',['id' => $case->id]) }}">
                                                     <button class="btn btn-primary">
                                                     <i class="bi-pencil"></i>
                                                     </button>
                                         </a>
                                     </td>
-                                    <td>
+                                    {{-- <td>
                                         <a href="{{ route('admin.case.delete',$case->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
@@ -67,7 +55,7 @@
                                                 <i class="bi-trash"></i>
                                             </button>
                                         </a>
-                                    </td>
+                                    </td> --}}
                                   @endif
                             </tr>
                         @endforeach
