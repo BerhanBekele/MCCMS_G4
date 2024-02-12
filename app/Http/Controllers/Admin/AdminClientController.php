@@ -5,14 +5,22 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Client;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class AdminClientController extends Controller
 {
     public function index(){
         $viewData=[];
-        $viewData["title"] = "Created Cases";
+        $viewData["title"] = "Created Client";
         $viewData["client"] = Client::all();
-        return view('admin.case.index')->with("viewData",$viewData);
+        return view('admin.client.index')->with("viewData",$viewData);
+
+    }
+    public function create(){
+        $viewData=[];
+        $viewData["title"] = "Created Client";
+        $viewData["client"] = Client::all();
+        return view('admin.client.create')->with("viewData",$viewData);
 
     }
     public function show($id){
@@ -23,4 +31,31 @@ class AdminClientController extends Controller
             return view('admin.client.show')->with("viewData", $viewData);
 
    }
+   public function clientName(){
+    $viewData=[];
+    $viewData["title"] = "Created Cases";
+    $viewData["clients"] = Client::all();
+    return view('admin.case.create')->with("viewData",$viewData);
+
+}
+   public function save(Request $request){
+    //Client::validate($request);
+    $newClient=new Client();
+    $newClient->client_name=$request->input('client_name');
+    $newClient->dob=$request->input('dob');
+    $newClient->sex=$request->input('sex');
+    $newClient->client_address=$request->input('client_address');
+    $newClient->phone_number=$request->input('phone_number');
+    $newClient->client_photo='client_photo.gpg';
+   $newClient->save();
+    if( $request->hasFile('client_photo') ){
+        $imageName = $newClient->client_name.'.'.$request->file('client_photo')->extension();
+        Storage::disk('public')->put($imageName,
+                        file_get_contents($request->file('client_photo')->getRealPath()));
+        $newClient->client_photo = $imageName;
+        $newClient->save();
+    }
+    return redirect()->route('admin.client.index');
+
+    }
 }

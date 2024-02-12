@@ -29,6 +29,8 @@ class AdminCaseController extends Controller
         $viewData=[];
         $viewData["title"] = "Created Cases";
         $viewData["cases"] = Cases::all();
+        $viewData["client"] = Client::join('Cases', 'cases.client_id', '=', 'id')
+                ->select('cases.*', 'clients.client_name as client_name')->get();
         return view('admin.case.index')->with("viewData",$viewData);
 
     }
@@ -51,12 +53,14 @@ class AdminCaseController extends Controller
         $viewData["title"] = "Create New Case";
         return view('admin.case.create')->with("viewData",$viewData);
     }
+
 public function save(Request $request){
     Cases::validate($request);
     $newCase=new Cases();
     $newCase->case_type=$request->input('case_type');
     $newCase->case_description=$request->input('case_description');
     $newCase->email=$request->input('email');
+    $newCase->client_id=$request->input('client_id');
     $newCase->case_status='Pending';
     $newCase->save();
     return redirect()->route('admin.case.index');

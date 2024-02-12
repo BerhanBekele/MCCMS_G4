@@ -24,8 +24,9 @@ class AdminJudgeController extends Controller
         $email=[$email];
         $viewData=[];
         $viewData["title"] = "Asigned Cases";
-        $viewData["cases"] = Cases::whereIn('email', $email)->get();
-        $viewData["client"] = Client::all();
+        // $viewData["cases"] = Cases::whereIn('email', $email)->get();
+        $viewData["cases"] = Cases::whereIn('email', $email)->join('clients', 'clients.id', '=', 'cases.client_id')
+                           ->select('cases.*','clients.client_name')->get();
 
 //         $viewData["cases"] = Cases::join('judge', 'cases.judge_id', '=', 'judge.id')
 //         ->join('court', 'cases.court_id', '=', 'court.id')

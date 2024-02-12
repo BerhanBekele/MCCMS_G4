@@ -16,7 +16,10 @@ return new class extends Migration
         Schema::create('clients', function (Blueprint $table) {
             $table->id();
             $table->string('client_name');
+            $table->date('dob');
+            $table->string('sex');
             $table->string('client_address');
+            $table->string('phone_number');
             $table->string('client_photo');
             $table->timestamps();
         });
@@ -29,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('clients');
+        Schema::dropIfExists('client');
     }
 };

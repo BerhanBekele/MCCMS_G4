@@ -30,9 +30,10 @@
                                 <td>{{$case->case_type}}</td>
                                 <td>{{$case->case_description}}</td>
                                 <td>{{$case->case_status}}</td>
-                                @foreach($viewData['client'] as $client)
-                                <td>{{$client->client_name}}</td>
-                                 @endforeach
+                               {{-- @foreach($viewData['client'] as $client)
+                                <td>{{$client->client_id}}</td>
+                                 @endforeach --}}
+                                 <td>{{$case->client_name}}</td>
                                 <td>{{$case->created_at}}</td>
                                 <td>{{$case->judge_name}}</td>
                                 <td>{{$case->court_name}}</td>

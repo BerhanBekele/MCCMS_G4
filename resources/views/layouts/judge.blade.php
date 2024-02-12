@@ -27,6 +27,7 @@
                 </a>
                 <hr />
                 <li><a href="{{ route('admin.home.index') }}" class="nav  mt-3 btn bg-primary text-white"><h5>  Home </h5></a></li>
+                <li><a href="{{ route('admin.client.index') }}" class="nav mt-3 btn bg-primary text-white"> <h5>  Show - Client </h5></a></li>
                 <li><a href="{{ route('admin.judge.asignedCases') }}" class="nav mt-3 btn bg-primary text-white"> <h5>  Edit - Cases </h5></a></li>
                 <li><a href="{{ route('admin.case.asign') }}" class="nav mt-3 btn bg-primary text-white"> <h5>  Manage - Cases </h5></a></li>
                 <hr />

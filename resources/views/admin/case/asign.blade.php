@@ -41,7 +41,11 @@
                                 <td>{{$case->judge_name}}</td>
                                 <td>{{$case->court_name}}</td>
                                 <td>{{$case->updated_at}}</td>
-                                @foreach($viewData['client'] as $client)
+                                <td><a href="{{ route('admin.client.show',['id' => $case->client_id]) }}">
+                                    <button class="btn btn-secondary">
+                                    <i class="bi-info"></i>
+                                    </button></td>
+                                {{-- @foreach($viewData['client'] as $client)
                                 <td>
                                     <a href="{{ route('admin.client.show',['id' => $client->id]) }}">
                                         <button class="btn btn-primary">
@@ -49,7 +53,7 @@
                                         </button>
 
                                </td>
-                                 @endforeach
+                                 @endforeach --}}
 
                                 @if(Auth::user()->role->role=='judge')
                                     <td>

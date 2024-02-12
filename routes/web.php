@@ -38,6 +38,7 @@ Route::get('cases','App\Http\Controllers\Admin\AdminCaseController@index')->name
 Route::get('clientCases','App\Http\Controllers\Admin\AdminCaseController@clientCases')->name("admin.case.index");
 Route::get('newCase','App\Http\Controllers\Admin\AdminCaseController@create')->name("admin.case.create");
 Route::post('saveNewCase','App\Http\Controllers\Admin\AdminCaseController@save')->name("admin.case.save");
+Route::get('clientName','App\Http\Controllers\Admin\AdminClientController@clientName')->name("admin.case.create");
 
 
 Route::get('delete','App\Http\Controllers\Admin\AdminCaseController@delete')->name("admin.case.delete");
@@ -49,7 +50,11 @@ Route::get('/case/{id}/delete','App\Http\Controllers\Admin\AdminCaseController@d
 Route::get('asignedCases','App\Http\Controllers\Admin\AdminJudgeController@asignedCases')->name("admin.judge.asignedCases");
 Route::get('/judge/{id}/editCase','App\Http\Controllers\Admin\AdminJudgeController@editCase')->name("admin.judge.editCase");
 Route::put('/judge/{id}/updateCase','App\Http\Controllers\Admin\AdminJudgeController@updateCase')->name("admin.judge.updateCase");
+
+Route::get('clients','App\Http\Controllers\Admin\AdminClientController@index')->name("admin.client.index");
+Route::get('newClient','App\Http\Controllers\Admin\AdminClientController@create')->name("admin.client.create");
 Route::get('/client/{id}/show','App\Http\Controllers\Admin\AdminClientController@show')->name("admin.client.show");
+Route::post('saveNewClient','App\Http\Controllers\Admin\AdminClientController@save')->name("admin.client.save");
 
 // Route::get('/','App\Http\Controllers\Admin\AdminJudgeController@AsignedCases')->name("admin.judge.AsignedCases");
 

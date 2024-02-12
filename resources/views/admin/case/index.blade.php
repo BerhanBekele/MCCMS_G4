@@ -9,7 +9,7 @@
                 <div>
                     <a href="{{ route('admin.case.create')}}">
                         <button type="button" class="btn btn-primary float-end">
-                            create Case
+                            Create Case
                         </button>
                     </a>
                 </div>
