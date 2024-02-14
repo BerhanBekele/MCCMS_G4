@@ -23,6 +23,7 @@
                             <th scope="col">Case Created Date</th>
                             <th scope="col">Asign Judge</th>
                             <th scope="col">Court</th>
+                            <th scope="col">Asign Lawyer</th>
                             <th scope="col">Case Appointment Date</th>
                             <th scope="col">Client Info</th>
                             <th scope="col">Manage</th>
@@ -40,6 +41,7 @@
                                 <td>{{$case->created_at}}</td>
                                 <td>{{$case->judge_name}}</td>
                                 <td>{{$case->court_name}}</td>
+                                <td>{{$case->lawyer_name}}</td>
                                 <td>{{$case->updated_at}}</td>
                                 <td><a href="{{ route('admin.client.show',['id' => $case->client_id]) }}">
                                     <button class="btn btn-secondary">
@@ -55,7 +57,7 @@
                                </td>
                                  @endforeach --}}
 
-                                @if(Auth::user()->role->role=='judge')
+                                @if(Auth::user()->role->role=='supperAdmin')
                                     <td>
                                         <a href="{{ route('admin.case.edit',['id' => $case->id]) }}">
                                                     <button class="btn btn-primary">

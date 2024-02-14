@@ -15,7 +15,8 @@
                 </div>
                 <table class= "table table-bordered table-striped">
                     <thead>
-                        <tr>
+                        <tr >
+                            {{-- style="align-text:center;" --}}
                             <th scope="col">Id</th>
                             <th scope="col">Case Type</th>
                             <th scope="col">Case Description</th>

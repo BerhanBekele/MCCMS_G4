@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Client;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
@@ -32,9 +33,11 @@ class AdminClientController extends Controller
 
    }
    public function clientName(){
+    $r_id=[3];
     $viewData=[];
     $viewData["title"] = "Created Cases";
     $viewData["clients"] = Client::all();
+    $viewData["users"] =User::whereIn('role_id',array(3))->get();
     return view('admin.case.create')->with("viewData",$viewData);
 
 }

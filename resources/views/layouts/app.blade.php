@@ -12,7 +12,6 @@
 </head>
 
 <body>
-    <!-- header -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-secondary py-1">
         <div class="container">
             <a class="navbar-brand" href="#"> {{ __('Military Court Case Managment System') }} </a>
@@ -30,16 +29,19 @@
                     @guest
                     <a class="nav-link active" href="{{route('login')}}">Login</a>
                     @else
-                      <a class ="nav-link active" href="{{route('admin.case.index')}}">My Cases</a>
                         @if(Auth::user()->role->role=='admin')
-                            <a class="nav-link active" href="{{route('admin.home.index')}}">Admin Dashboard</a>
+                        <a class="nav-link active" href="{{route('admin.home.index')}}">Admin Dashboard</a>
                         @endif
 
-                        @if(Auth::user()->role->role=='judge')
-                        <a class="nav-link active" href="{{route('admin.judge.asignedCases')}}">Cases Dashboard</a>
-                        @endif
+                        @if(Auth::user()->role->role=='judge' or Auth::user()->role->role=='clark' or Auth::user()->role->role=='supperAdmin')
+                         <a class ="nav-link active" href="{{route('admin.case.index')}}">My Cases</a>
+                         @endif
+                         @if(Auth::user()->role->role=='judge'  or Auth::user()->role->role=='lawyer' or Auth::user()->role->role=='supperAdmin')
+                         <a class="nav-link active" href="{{route('admin.judge.asignedCases')}}">Cases Dashboard</a>
+                          @endif
 
-                        <form id="logout" action="{{route('logout')}}" method="POST">
+
+                          <form id="logout" action="{{route('logout')}}" method="POST">
                             <a role="button" class="nav-link active"
                                 onclick="document.getElementById('logout').submit();">Logout
                             </a>

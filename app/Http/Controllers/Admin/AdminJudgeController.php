@@ -16,23 +16,39 @@ class AdminJudgeController extends Controller
         $viewData=[];
         $viewData["title"] = "Admin Page -Admin - Online Cases ";
         return view('admin.judge.index')->with("viewData",$viewData);
+
     }
 
     public function asignedCases(){
         $email = Auth::user()->email;
+        $name = Auth::user()->name;
         // echo "<b><i>You are logged-in email address:".$email."</i></b>";
         $email=[$email];
+        //$name=[$name];
         $viewData=[];
-        $viewData["title"] = "Asigned Cases";
+      // $viewData["title"] = "Asigned Cases";
+        $viewData["title"] =$name;
         // $viewData["cases"] = Cases::whereIn('email', $email)->get();
-        $viewData["cases"] = Cases::whereIn('email', $email)->join('clients', 'clients.id', '=', 'cases.client_id')
-                           ->select('cases.*','clients.client_name')->get();
-
-//         $viewData["cases"] = Cases::join('judge', 'cases.judge_id', '=', 'judge.id')
-//         ->join('court', 'cases.court_id', '=', 'court.id')
-// ->select('cases.*', 'judge.judge_name as judge_name', 'court.court_name as court_name')
-// ->get();
-
+        if(Auth::user()->role_id==3){
+        $viewData["cases"] = Cases::whereIn('email', $email)->join('judge', 'cases.judge_id', '=', 'judge.id')
+                                    ->join('clients', 'clients.id', '=', 'cases.client_id')
+                                    ->join('court', 'cases.court_id', '=', 'court.id')
+                                    ->join('lawyer', 'cases.lawyer_id', '=', 'lawyer.id')
+                                    ->select('cases.*', 'judge.judge_name', 'court.court_name','lawyer.lawyer_name','clients.client_name')
+                                    ->get();
+      }
+      else{
+    //   $viewData["cases"] = Cases::join('clients', 'clients.id', '=', 'cases.client_id')
+    //                 ->select('cases.*','clients.client_name')->get();
+    //                     }
+        $viewData["cases"] = Cases::join('judge', 'cases.judge_id', '=', 'judge.id')
+                        ->join('clients', 'clients.id', '=', 'cases.client_id')
+                        ->join('court', 'cases.court_id', '=', 'court.id')
+                        ->join('lawyer', 'cases.lawyer_id', '=', 'lawyer.id')
+                        ->select('cases.*', 'judge.judge_name', 'court.court_name','lawyer.lawyer_name','clients.client_name')
+                        ->get();
+                    }
+        $viewData["client"] = Client::all();
         return view('admin.judge.asignedCases')->with("viewData",$viewData);
 
     }

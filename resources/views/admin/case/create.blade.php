@@ -12,11 +12,6 @@
                    @endforeach
                </ul>
            @endif
-           <form method="POST" action="{{ route('admin.case.save') }}" enctype="multipart/form-data">
-            <div class="col-1">
-                <button type="submit" class="btn btn-primary">Submit</button>
-             </div>
-               @csrf
 
                <div class="row">
                        <div class="col-md-5">
@@ -30,17 +25,12 @@
                             </select>
                            </div>
                        </div>
-                       <div class="col-md-8">
+                       <div class="md-3">
                             <label class="form-label">Case Description</label>
                             <textarea class="form-control" name="case_description" rows="3" value="case_description" >{{ old('case_description') }}</textarea>
 
                        </div>
-                       <div class="col-3">
-                        <label class="form-label">Case Handler Judge E-Mail Address</label>
-                        <input name="email" value="{{ old('email') }}" type="text" class="form-control">
-                        </div>
-
-                       <div class="col-3">
+                       <div class="col-5">
                         <label class="form-label">Case Submit Client Name</label>
                         <select  id="client_id" class="form-control form-select @error('case') is-invalid @enderror" name="client_id">
                          <option value="0" selected>Select Client Name</option>
@@ -48,7 +38,25 @@
                             <option value="{{$client->id}}">{{ $client->client_name }}
                             </option>
                           @endforeach
+                        </select>
                     </div>
+                       <div class="col-5">
+                        <label class="form-label">Case Handler Judge E-Mail Address</label>
+                        <select  id="email" class="form-control form-select @error('case') is-invalid @enderror" name="email">
+                            <option value="0" selected>Select judge e-mail</option>
+                               @foreach($viewData['users'] as $user)
+                                <option value="{{$user->email}}">{{$user->email }}
+                               </option>
+                             @endforeach
+                            </select>
+                        </div>
+
+                        <form method="POST" action="{{ route('admin.case.save') }}" enctype="multipart/form-data">
+                            <div class="col-1">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                             </div>
+                               @csrf
+
 
 
            </form>

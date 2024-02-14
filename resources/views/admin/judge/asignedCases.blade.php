@@ -15,8 +15,9 @@
                             <th scope="col">Case Status</th>
                             <th scope="col">Case Client </th>
                             <th scope="col">Case Created Date</th>
-                            <th scope="col">Asign Judge</th>
+                            <th scope="col">Asigned Judge</th>
                             <th scope="col">Court</th>
+                            <th scope="col">Asigned Lawyer</th>
                             <th scope="col">Appointment Date</th>
                             <th scope="col">Edit Case Desc</th>
                             {{-- <th scope="col">Delete</th> --}}
@@ -37,6 +38,7 @@
                                 <td>{{$case->created_at}}</td>
                                 <td>{{$case->judge_name}}</td>
                                 <td>{{$case->court_name}}</td>
+                                <td>{{$case->lawyer_name}}</td>
                                 <td>{{$case->updated_at}}</td>
 
 

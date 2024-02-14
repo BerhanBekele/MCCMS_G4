@@ -5,11 +5,10 @@ use App\Models\Cases;
 use App\Models\Court;
 use App\Models\Judge;
 use App\Models\Client;
-use App\Models\Product;
+use App\Models\Lawyer;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
 
 class AdminCaseController extends Controller
 {
@@ -21,6 +20,9 @@ class AdminCaseController extends Controller
         $email=[$email];
         $viewData=[];
         $viewData["title"] = "Created Cases";
+        if(Auth::user()->role->role=='clark')
+        $viewData["cases"] = Cases::all();
+        else
         $viewData["cases"] = Cases::whereIn('email', $email)->get();
         return view('admin.case.index')->with("viewData",$viewData);
 
@@ -41,7 +43,8 @@ class AdminCaseController extends Controller
         //$viewData["cases"] = Cases::all();
         $viewData["cases"] = Cases::join('judge', 'cases.judge_id', '=', 'judge.id')
                                   ->join('court', 'cases.court_id', '=', 'court.id')
-        ->select('cases.*', 'judge.judge_name as judge_name', 'court.court_name as court_name')
+                                  ->join('lawyer', 'cases.lawyer_id', '=', 'lawyer.id')
+        ->select('cases.*', 'judge.judge_name', 'court.court_name','lawyer.lawyer_name')
         ->get();
         $viewData["client"] = Client::all();
 
@@ -73,8 +76,10 @@ public function save(Request $request){
         $viewData["title"] = "Admin Page - Admin - Online Cases ";
         $viewData["case"] = Cases::with('judge')->findOrFail($id);
         $viewData["case"] = Cases::with('court')->findOrFail($id);
+        $viewData["case"] = Cases::with('lawyer')->findOrFail($id);
         $viewData["judge"] = Judge::all();
         $viewData["court"] = Court::all();
+        $viewData["lawyer"] = Lawyer::all();
         return view('admin.case.edit')->with("viewData",$viewData);
 
     }

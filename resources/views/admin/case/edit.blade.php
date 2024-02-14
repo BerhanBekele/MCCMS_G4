@@ -38,6 +38,7 @@
                          <option value="On Progress">On Progress</option>
                          <option value="Postponded">Postponded</option>
                          <option value="terminated">Terminated</option>
+                         <option value="unfullfill">Unfullfill</option>
                          <option value="Complitted">Complitted</option>
                      </select>
                     </div>
@@ -53,11 +54,20 @@
                     </div>
                     <div class="col-md-3">
                         <label class="col-lg-2 col-md-6 col-sm-12 col-form-label">Select Court:</label>
-                        <select  id="judge_id" class="form-control form-select @error('case') is-invalid @enderror" name="court_id">
+                        <select  id="court_id" class="form-control form-select @error('case') is-invalid @enderror" name="court_id">
                          <option value="{{ $viewData['case']->court->id }}" selected>{{ $viewData['case']->court->court_name }} </option>
                          @foreach($viewData['court'] as $courts)
                          <option value="{{$courts->id}}">{{ $courts->court_name }}</option>
 
+                           @endforeach
+                     </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="col-lg-2 col-md-6 col-sm-12 col-form-label">Select Lawyer:</label>
+                        <select  id="lawyer_id" class="form-control form-select @error('case') is-invalid @enderror" name="lawyer_id">
+                         <option value="{{ $viewData['case']->lawyer->id }}" selected>{{ $viewData['case']->lawyer->lawyer_name}} </option>
+                         @foreach($viewData['lawyer'] as $lawyer)
+                         <option value="{{$lawyer->id}}">{{ $lawyer->lawyer_name }}</option>
                            @endforeach
                      </select>
                     </div>
