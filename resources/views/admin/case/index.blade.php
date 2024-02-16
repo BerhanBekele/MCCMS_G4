@@ -21,10 +21,10 @@
                             <th scope="col">Case Type</th>
                             <th scope="col">Case Description</th>
                             <th scope="col">Case Status</th>
-                            <th scope="col">Case Client</th>
+                            <th scope="col">Plaintiff</th>
                             <th scope="col">Case Created Date</th>
                             <th scope="col">Case Appointment Date</th>
-                            <th scope="col">Case Creator E-Mail Address</th>
+                            <th scope="col">Prosecutor E-Mail Address</th>
                             {{-- <th scope="col">Edit</th>
                             <th scope="col">Delete</th> --}}
                         </tr>
@@ -36,7 +36,7 @@
                                 <td>{{$case->case_type}}</td>
                                 <td>{{$case->case_description}}</td>
                                 <td>{{$case->case_status}}</td>
-                                <td>{{$case->client_id}}</td>
+                                <td>{{$case->client_name}}</td>
                                 <td>{{$case->created_at}}</td>
                                 <td>{{$case->updated_at}}</td>
                                 <td>{{$case->email}}</td>

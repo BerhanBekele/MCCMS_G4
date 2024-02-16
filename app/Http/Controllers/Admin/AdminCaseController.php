@@ -21,9 +21,14 @@ class AdminCaseController extends Controller
         $viewData=[];
         $viewData["title"] = "Created Cases";
         if(Auth::user()->role->role=='clark')
-        $viewData["cases"] = Cases::all();
-        else
-        $viewData["cases"] = Cases::whereIn('email', $email)->get();
+       $viewData["cases"] = Cases::join('clients', 'cases.client_id', '=', 'clients.id')
+                                ->select('cases.*', 'clients.client_name as client_name')->get();
+         else
+       // $viewData["cases"] = Cases::whereIn('email', $email)->get();
+       $viewData["cases"] = Cases::whereIn('email', $email)
+                                ->join('clients', 'cases.client_id', '=', 'clients.id')
+                        ->select('cases.*', 'clients.client_name as client_name')->get();
+
         return view('admin.case.index')->with("viewData",$viewData);
 
     }

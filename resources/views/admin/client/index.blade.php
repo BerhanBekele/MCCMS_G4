@@ -1,15 +1,15 @@
-@extends('layouts.judge')
+@extends('layouts.app')
 @section('title',$viewData['title'])
 @section('content')
     <div class="card-header">
-        <h2> Created Client</h2>
+        <h2> Created Plaintiff</h2>
     </div>
         <div class="card">
             <div class= "card-body">
                 <div>
                     <a href="{{ route('admin.client.create')}}">
                         <button type="button" class="btn btn-primary float-end">
-                            Create Client
+                            Create Plaintiff
                         </button>
                     </a>
                 </div>
@@ -17,12 +17,12 @@
                     <thead>
                         <tr>
                             <th scope="col">Id</th>
-                            <th scope="col">Case Name</th>
+                            <th scope="col">Plaintiff Name</th>
                             <th scope="col">Date Of Birth</th>
                             <th scope="col">Sex</th>
-                            <th scope="col">Case Address</th>
+                            <th scope="col">Plaintiff Address</th>
                             <th scope="col">Phone  Number</th>
-                            <th scope="col">Client Photo</th>
+                            <th scope="col">Plaintiff Photo</th>
                         </tr>
                     </thead>
                     <tbody>

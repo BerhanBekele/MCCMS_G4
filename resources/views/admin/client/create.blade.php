@@ -1,8 +1,8 @@
-@extends('layouts.judge')
+@extends('layouts.app')
 @section('title', $viewData['title'])
 @section('content')
    <div class="card mb-4">
-       <div class="card-header"> <h3> Create Client</h3> </div>
+       <div class="card-header"> <h3> Create Plaintiff</h3> </div>
        <div class="card-body">
            {{-- @if ($errors->any())
                <ul class="alert alert-danger list-unstyled">
@@ -15,7 +15,7 @@
                @csrf
                <div class="row">
                     <div class="col-md-3">
-                        <label class="form-label">Client Full Name</label>
+                        <label class="form-label">Plaintiff Full Name</label>
                          <input name="client_name" value="{{ old('client_name') }}" type="text" class="form-control">
                    </div>
                       <div class="col-md-3">
@@ -34,7 +34,7 @@
                            </div>
                        </div>
                        <div class="col-md-6">
-                            <label class="form-label">Client Address</label>
+                            <label class="form-label">Plaintiff Address</label>
                             <input name="client_address" value="{{ old('client_address') }}" type="text" class="form-control">
                        </div>
                        <div class="col-md-2">
@@ -42,7 +42,7 @@
                         <input name="phone_number" value="{{ old('phone_number') }}" type="text" class="form-control">
                         </div>
                           <div class="col-md-6">
-                            <label class="form-label">Client Photo:</label>
+                            <label class="form-label">Plaintiff Photo:</label>
                             <div class="col-lg-12 col-md-3 col-sm-12">
                                 <input class="form-control" type="file" name="client_photo" value="{{ old('client_photo') }}">
                                 {{-- <input class="form-control" type="file" name="image"> --}}

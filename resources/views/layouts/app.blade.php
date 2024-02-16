@@ -23,8 +23,7 @@
                 <div class="navbar-nav ms-auto">
                     <a class="nav-link active" href="{{route('home.index')}}">Home</a>
                     {{-- <a class="nav-link active" href="{{route('products.index')}}">Products</a>
-                    <a class="nav-link active" href="{{route('cart.index')}}">Cart</a>
-                    <a class="nav-link active" href="{{route('home.about')}}">About</a> --}}
+                    <a class="nav-link active" href="{{route('cart.index')}}">Cart</a>--}}
                     <div class=" vr bg-with mx-2 d-none d-lg-block"></div>
                     @guest
                     <a class="nav-link active" href="{{route('login')}}">Login</a>
@@ -34,9 +33,10 @@
                         @endif
 
                         @if(Auth::user()->role->role=='judge' or Auth::user()->role->role=='clark' or Auth::user()->role->role=='supperAdmin')
-                         <a class ="nav-link active" href="{{route('admin.case.index')}}">My Cases</a>
+                         <a class ="nav-link active" href="{{route('admin.case.index')}}"> Cases</a>
+                         <a class ="nav-link active" href="{{route('admin.client.index')}}">Plaintiff</a>
                          @endif
-                         @if(Auth::user()->role->role=='judge'  or Auth::user()->role->role=='lawyer' or Auth::user()->role->role=='supperAdmin')
+                         @if(Auth::user()->role->role<>'admin')
                          <a class="nav-link active" href="{{route('admin.judge.asignedCases')}}">Cases Dashboard</a>
                           @endif
 
@@ -48,6 +48,8 @@
                                 @csrf
                         </form>
                     @endguest
+                    <div class=" vr bg-with mx-2 d-none d-lg-block"></div>
+                    <a class="nav-link active" href="{{route('home.about')}}">About</a>
                 </div>
             </div>
         </div>

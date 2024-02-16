@@ -21,11 +21,11 @@
                             <th scope="col">Case Description</th>
                             <th scope="col">Case Status</th>
                             <th scope="col">Case Created Date</th>
-                            <th scope="col">Asign Judge</th>
+                            <th scope="col">Asigned Prosecutor</th>
                             <th scope="col">Court</th>
-                            <th scope="col">Asign Lawyer</th>
+                            <th scope="col">Asigned Judge</th>
                             <th scope="col">Case Appointment Date</th>
-                            <th scope="col">Client Info</th>
+                            <th scope="col">Plaintiff Info</th>
                             <th scope="col">Manage</th>
                             <th scope="col">Delete</th>
 

@@ -77,7 +77,7 @@ Route::middleware('admin')->prefix('/admin')->group(function() {
     Route::get('/products/{id}/delete','App\Http\Controllers\Admin\AdminProductController@delete')->name("admin.product.delete");
     Route::get('/products/{id}/edit','App\Http\Controllers\Admin\AdminProductController@edit')->name("admin.product.edit");
     Route::put('/products/{id}/update','App\Http\Controllers\Admin\AdminProductController@update')->name("admin.product.update");
-    Route::get('/role','App\Http\Controllers\Admin\AdminRoleController@index')->name("admin.role.index");
+    Route::get('/adminUser','App\Http\Controllers\Admin\AdminRoleController@index')->name("admin.role.index");
     Route::get('/role/{id}/edit','App\Http\Controllers\Admin\AdminRoleController@edit')->name("admin.role.edit");
     Route::put('/role/{id}/update','App\Http\Controllers\Admin\AdminRoleController@update')->name("admin.role.update");
     Route::get('/role/{id}/delete','App\Http\Controllers\Admin\AdminRoleController@delete')->name("admin.role.delete");

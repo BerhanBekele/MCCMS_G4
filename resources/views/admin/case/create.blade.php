@@ -31,9 +31,9 @@
 
                        </div>
                        <div class="col-5">
-                        <label class="form-label">Case Submit Client Name</label>
+                        <label class="form-label">Plaintiff Name</label>
                         <select  id="client_id" class="form-control form-select @error('case') is-invalid @enderror" name="client_id">
-                         <option value="0" selected>Select Client Name</option>
+                         <option value="0" selected>Select Plaintiff Name</option>
                             @foreach($viewData['clients'] as $client)
                             <option value="{{$client->id}}">{{ $client->client_name }}
                             </option>
@@ -41,9 +41,9 @@
                         </select>
                     </div>
                        <div class="col-5">
-                        <label class="form-label">Case Handler Judge E-Mail Address</label>
+                        <label class="form-label">Prosecutor E-Mail Address</label>
                         <select  id="email" class="form-control form-select @error('case') is-invalid @enderror" name="email">
-                            <option value="0" selected>Select judge e-mail</option>
+                            <option value="0" selected>Select Prosecutor e-mail</option>
                                @foreach($viewData['users'] as $user)
                                 <option value="{{$user->email}}">{{$user->email }}
                                </option>

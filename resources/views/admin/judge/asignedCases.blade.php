@@ -13,11 +13,11 @@
                             <th scope="col">Case Type</th>
                             <th scope="col">Case Description</th>
                             <th scope="col">Case Status</th>
-                            <th scope="col">Case Client </th>
+                            <th scope="col">Plaintiff </th>
                             <th scope="col">Case Created Date</th>
-                            <th scope="col">Asigned Judge</th>
+                            <th scope="col">Asigned Prosecutor</th>
                             <th scope="col">Court</th>
-                            <th scope="col">Asigned Lawyer</th>
+                            <th scope="col">Asigned Judge</th>
                             <th scope="col">Appointment Date</th>
                             <th scope="col">Edit Case Desc</th>
                             {{-- <th scope="col">Delete</th> --}}

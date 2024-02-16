@@ -43,7 +43,7 @@
                      </select>
                     </div>
                      <div class="col-md-3">
-                        <label class="col-lg-2 col-md-6 col-sm-12 col-form-label">Asign Judge:</label>
+                        <label class="col-lg-2 col-md-6 col-sm-12 col-form-label">Asign Prosecutor:</label>
                         <select  id="judge_id" class="form-control form-select @error('case') is-invalid @enderror" name="judge_id">
                          <option value="{{ $viewData['case']->judge->id }}" selected>{{ $viewData['case']->judge->judge_name }} </option>
                          @foreach($viewData['judge'] as $judges)
@@ -63,7 +63,7 @@
                      </select>
                     </div>
                     <div class="col-md-3">
-                        <label class="col-lg-2 col-md-6 col-sm-12 col-form-label">Select Lawyer:</label>
+                        <label class="col-lg-2 col-md-6 col-sm-12 col-form-label">Select Judge:</label>
                         <select  id="lawyer_id" class="form-control form-select @error('case') is-invalid @enderror" name="lawyer_id">
                          <option value="{{ $viewData['case']->lawyer->id }}" selected>{{ $viewData['case']->lawyer->lawyer_name}} </option>
                          @foreach($viewData['lawyer'] as $lawyer)

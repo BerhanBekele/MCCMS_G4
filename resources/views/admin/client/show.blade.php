@@ -10,7 +10,7 @@
            </div>
            <div class="col-md-8">
                <div class="card-body">
-                   <h5>  <label class="form-label">Client Name</label>
+                   <h5>  <label class="form-label">Plaintiff Name</label>
                     :- {{ $viewData['client']->client_name}}
 
                     </h5>
@@ -22,7 +22,7 @@
                         :- {{ $viewData['client']->sex}}
 
                      </h5>
-                     <h5>  <label class="form-label">Client Address</label>
+                     <h5>  <label class="form-label">Plaintiff Address</label>
                         :-{{ $viewData['client']->client_address}}
 
                      </h5>
