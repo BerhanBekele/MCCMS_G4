@@ -1,4 +1,36 @@
 {
-"Online Store": "የኢንተርኔት መደብር"
+"Military Court Case Managment System": "የወታደራዊ  ፍርድ ቤት ጉዳይ አስተዳደር ሥርዓት",
+"Home": "መነሻ ገጽ",
+"About": "ስለ እኛ",
+"Login": "ግባ",
+"Logout": "ውጣ",
+"Plaintiff": "ከሳሽ",
+"Cases": "ጉዳዮች",
+"Cases Dashboard": "የጉዳዮች ዳሽቦርድ",
+"Admin Dashboard":"የአስተዳዳሪ ዳሽቦርድ",
+"Edit Cases":"የተመዘገቡ ጉዳዮች ማደራጀት",
+"Created Cases":"የተመዘገቡ ጉዳዮች",
+"Manage Cases":"ጉዳዮችን ማስተዳድር",
+"Go back to the home page":"ወደ መነሻ ገጽ ተመለስ",
+"Navigation Panel":"የአሰሳ ፓነል",
+"Admin Panel":"የተጠቃሚዎች ማስተዳደሪያ ፓነል",
+"Register New User":"አዲስ ተጠቃሚ ይመዝገቡ",
+"Admin User":"ተጠቃሚን ማስተዳድር",
+"Login to Military Court Case Managment System":"ወደ ወታደራዊ ፍርድ ቤት ጉዳይ አስተዳደር ስርዓት ይግቡ",
+"Email Address":"የ ኢሜል አድራሻ",
+"Name":"የተጠቃሚ ስም",
+"Password":"የይለፍ ቃል",
+"Forgot Your Password?":"የሚስጥራዊውን ቁጥር ረሳህው?",
+"Remember Me":"አስታወስኝ",
+"Confirm Password":"የይለፍ ቃል አረጋግጥ",
+"Register":"መዝገብ",
+"Edit":"መዝገብ",
+"Submit":"አስገባ",
+"New User Registration":"የአዲስ ተጠቃሚ መመዝገቢያ",
+"Create Plaintiff":"አዲስ ከሳሽ ይመዝገቡ",
+"Created Plaintiffs":"የተመዘገቡ ከሳሾች",
+"Create Case":"አዲስ ጉዳይ ይመዝገቡ"
+
+
 
 }

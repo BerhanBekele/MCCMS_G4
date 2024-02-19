@@ -2,7 +2,7 @@
 @section('title', $viewData['title'])
 @section('content')
     <div class="card mb-4">
-        <div class="card-header"> <h2> Edit Case</div>
+        <div class="card-header"> <h2> {{ __('Edit Cases') }}</div>
         <div class="card-body">
             @if ($errors->any())
                 <ul class="alert alert-danger list-unstyled">
@@ -37,7 +37,7 @@
 
                 </div>
                 <button class="btn btn-primary"  type="submit">
-                    <i class="bi-pencil"></i> Edit
+                    <i class="bi-pencil"></i> {{ __('Edit') }}
                 </button>
 
             </form>

@@ -4,7 +4,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Military Court Case Managment System User Registration') }}</div>
+                    <div class="card-header">{{ __('Military Court Case Managment System') }} {{ __('New User Registration') }} </div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('register') }}">
@@ -42,25 +42,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            {{-- <div class="row mb-3">
-                                <label for="role"
-                                    class="col-md-4 col-form-label text-md-end">Select One Role</label>
-                                <div class="col-md-6">
-                                    <select id="role" class="form-control form-select @error('role') is-invalid @enderror" name="role"
-                                    value="{{ old('role') }}" required>
-                                        <option selected>client</option>
-                                        <option value="1">admin</option>
-                                        <option value="2">inputer</option>
-                                        <option value="3">client</option>
-                                    </select>
 
-                                    @error('role')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                             </div> --}}
                             <div class="row mb-3">
                                 <label for="password"
                                     class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>

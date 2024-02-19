@@ -22,14 +22,14 @@
 
              <ul class="nav flex-column sidebar ">
                 <a href="{{ route('admin.home.index') }}" class="nav  mt-2 text-white text-decoration-none">
-                    <span class="fs-4"><h3> Admin Panel<h3> </span>
+                    <span class="fs-4"><h3>{{ __('Admin Panel') }} <h3> </span>
                 </a>
                 <hr />
-                <li><a href="{{ route('admin.home.index') }}" class="nav  mt-3 btn bg-primary text-white"><h5>  Home </h5></a></li>
+                <li><a href="{{ route('admin.home.index') }}" class="nav  mt-3 btn bg-primary text-white"><h5>  {{ __('Home') }} </h5></a></li>
                 <hr />
-                <li><a href="{{route('register')}}" class="nav mt-3 btn bg-primary text-white"><h5>Register New User </h5></a> </li>
-                <li><a href="{{ route('admin.role.index') }}" class="nav mt-3 btn bg-primary text-white"><h5> Admin  User </h5></a></li>
-                <li> <a href="{{ route('home.index') }}" class="nav mt-3 btn bg-primary text-white"><h6> Go back to the home page </h6></a></li>
+                <li><a href="{{route('register')}}" class="nav mt-3 btn bg-primary text-white"><h5> {{ __('Register New User') }}  </h5></a> </li>
+                <li><a href="{{ route('admin.role.index') }}" class="nav mt-3 btn bg-primary text-white"><h5> {{ __('Admin User') }} </h5></a></li>
+                <li> <a href="{{ route('home.index') }}" class="nav mt-3 btn bg-primary text-white"><h5>{{ __('Go back to the home page') }} </h5></a></li>
 
             </ul>
         </div>

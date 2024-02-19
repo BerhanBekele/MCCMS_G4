@@ -21,35 +21,36 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ms-auto">
-                    <a class="nav-link active" href="{{route('home.index')}}">Home</a>
-                    {{-- <a class="nav-link active" href="{{route('products.index')}}">Products</a>
-                    <a class="nav-link active" href="{{route('cart.index')}}">Cart</a>--}}
+                    <a class="nav-link active" href="{{route('home.index')}}">{{ __('Home') }}</a>
                     <div class=" vr bg-with mx-2 d-none d-lg-block"></div>
                     @guest
-                    <a class="nav-link active" href="{{route('login')}}">Login</a>
+                    <a class="nav-link active" href="{{route('login')}}">{{ __('Login') }}</a>
                     @else
+
                         @if(Auth::user()->role->role=='admin')
-                        <a class="nav-link active" href="{{route('admin.home.index')}}">Admin Dashboard</a>
+                        <a class="nav-link active" href="{{route('admin.home.index')}}">{{ __('Admin Dashboard') }}</a>
+                        <div class=" vr bg-with mx-2 d-none d-lg-block"></div>
                         @endif
 
                         @if(Auth::user()->role->role=='judge' or Auth::user()->role->role=='clark' or Auth::user()->role->role=='supperAdmin')
-                         <a class ="nav-link active" href="{{route('admin.case.index')}}"> Cases</a>
-                         <a class ="nav-link active" href="{{route('admin.client.index')}}">Plaintiff</a>
+                         <a class ="nav-link active" href="{{route('admin.case.index')}}"> {{ __('Cases') }}</a>
+                         <div class=" vr bg-with mx-2 d-none d-lg-block"></div>
+                         <a class ="nav-link active" href="{{route('admin.client.index')}}"> {{ __('Plaintiff') }}</a>
+                         <div class=" vr bg-with mx-2 d-none d-lg-block"></div>
                          @endif
                          @if(Auth::user()->role->role<>'admin')
-                         <a class="nav-link active" href="{{route('admin.judge.asignedCases')}}">Cases Dashboard</a>
+                         <a class="nav-link active" href="{{route('admin.judge.asignedCases')}}"> {{ __('Cases Dashboard') }}</a>
+                         <div class=" vr bg-with mx-2 d-none d-lg-block"></div>
                           @endif
-
 
                           <form id="logout" action="{{route('logout')}}" method="POST">
                             <a role="button" class="nav-link active"
-                                onclick="document.getElementById('logout').submit();">Logout
-                            </a>
+                                onclick="document.getElementById('logout').submit();">{{ __('Logout') }}</a>
                                 @csrf
                         </form>
                     @endguest
                     <div class=" vr bg-with mx-2 d-none d-lg-block"></div>
-                    <a class="nav-link active" href="{{route('home.about')}}">About</a>
+                    <a class="nav-link active" href="{{route('home.about')}}">{{ __('About') }}</a></a>
                 </div>
             </div>
         </div>
@@ -59,7 +60,7 @@
     <div class="container my-4">
         @yield('content')
     </div>
-    <div class="py-1 text-center text-white footer">
+    <div class="py-3 text-center text-white footer">
         <div class="container">
             <small class="copyright">
                 Copyright - <a class="text-reset fw-bold text-decoration-none" target="_blank"
@@ -67,12 +68,17 @@
                     Group-4
                 </a> - <b> MoND</b>
             </small>
-            {{-- Language Selector --}}
-            @include('partials.language_switcher')
+
         </div>
+        <div>{{-- Language Selector --}}
+             @include('partials.language_switcher')
+        </div>
+
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
     </script>
+
+
 </body>
 
 </html>
