@@ -38,7 +38,7 @@ Route::get('cases','App\Http\Controllers\Admin\AdminCaseController@index')->name
 Route::get('clientCases','App\Http\Controllers\Admin\AdminCaseController@clientCases')->name("admin.case.index");
 Route::get('newCase','App\Http\Controllers\Admin\AdminCaseController@create')->name("admin.case.create");
 Route::post('saveNewCase','App\Http\Controllers\Admin\AdminCaseController@save')->name("admin.case.save");
-Route::get('clientName','App\Http\Controllers\Admin\AdminClientController@clientName')->name("admin.case.create");
+Route::get('caseName','App\Http\Controllers\Admin\AdminClientController@clientName')->name("admin.case.create");
 
 
 Route::get('delete','App\Http\Controllers\Admin\AdminCaseController@delete')->name("admin.case.delete");

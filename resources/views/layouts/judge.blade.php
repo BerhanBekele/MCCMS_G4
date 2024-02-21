@@ -30,7 +30,7 @@
                     {{-- @if(Auth::user()->role->role=='clark')
                      <li><a href="{{ route('admin.client.index') }}" class="nav mt-3 btn bg-primary text-white"> <h5>  Show - Client </h5></a></li>
                     @endif --}}
-                    @if(Auth::user()->role->role=='judge'or Auth::user()->role->role=='lawyer' or Auth::user()->role->role=='supperAdmin')
+                    @if(Auth::user()->role->role=='judge'or Auth::user()->role->role=='lawyer')
                     {{-- <li><a href="{{ route('admin.client.index') }}" class="nav mt-3 btn bg-primary text-white"> <h5>  Show - Client </h5></a></li> --}}
                     <li><a href="{{ route('admin.judge.asignedCases') }}" class="nav mt-3 btn bg-primary text-white"> <h5>  {{ __('Edit Cases') }} </h5></a></li>
                     @endif

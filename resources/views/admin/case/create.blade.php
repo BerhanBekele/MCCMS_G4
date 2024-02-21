@@ -2,7 +2,8 @@
 @section('title', $viewData['title'])
 @section('content')
    <div class="card mb-4">
-       <div class="card-header"> <h3> {{ __('Created Cases') }}</h3> </div>
+       <div class="card-header"> <h3> {{ __('Created Cases') }}</h3>
+        </div>
        <div class="card-body">
            @if ($errors->any())
                <ul class="alert alert-danger list-unstyled">
@@ -11,7 +12,8 @@
                    @endforeach
                </ul>
            @endif
-
+           <form method="POST" action="{{ route('admin.case.save') }}" enctype="multipart/form-data">
+            @csrf
                <div class="row">
                        <div class="col-md-5">
                            <label class="col-lg-2 col-md-6 col-sm-12 col-form-label">Case Type:</label>
@@ -49,16 +51,11 @@
                              @endforeach
                             </select>
                         </div>
-
-                        <form method="POST" action="{{ route('admin.case.save') }}" enctype="multipart/form-data">
-                            <div class="col-1">
-                                <button type="submit" class="btn btn-primary"> {{ __('Submit') }}</button>
-                             </div>
-                               @csrf
-
-
-
-           </form>
+                    </div>
+                    <div class="col-1">
+                        <button type="submit" class="btn btn-primary"> {{ __('Submit') }}</button>
+                     </div>
+            . </form>
        </div>
    </div>
 @endsection
