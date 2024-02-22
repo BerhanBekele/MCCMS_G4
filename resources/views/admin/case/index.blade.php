@@ -13,6 +13,7 @@
                         </button>
                     </a>
                 </div>
+
                 <table class= "table table-bordered table-striped">
                     <thead>
                         <tr >
@@ -25,8 +26,9 @@
                             <th scope="col">Case Created Date</th>
                             <th scope="col">Case Appointment Date</th>
                             <th scope="col">Prosecutor E-Mail Address</th>
-                            {{-- <th scope="col">Edit</th>
-                            <th scope="col">Delete</th> --}}
+                            <th scope="col">Add Party</th>
+                            <th scope="col">View Parties</th>
+                            {{-- <th scope="col">Delete</th> --}}
                         </tr>
                     </thead>
                     <tbody>
@@ -40,6 +42,20 @@
                                 <td>{{$case->created_at}}</td>
                                 <td>{{$case->updated_at}}</td>
                                 <td>{{$case->email}}</td>
+                                <td>
+                                    <a href="{{ route('admin.party.create',['id' => $case->id]) }}">
+                                                <button class="btn btn-primary">
+                                                <i class="bi-pencil"></i>
+                                                </button>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="{{ route('admin.party.showParties',['id' => $case->id]) }}">
+                                                <button class="btn btn-primary"> View
+                                                {{-- <i class="bi-pencil"></i> --}}
+                                                </button>
+                                    </a>
+                                </td>
 
                         @endforeach
                     </tbody>

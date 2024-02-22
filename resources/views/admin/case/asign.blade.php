@@ -26,6 +26,7 @@
                             <th scope="col">Asigned Judge</th>
                             <th scope="col">Case Appointment Date</th>
                             <th scope="col">Plaintiff Info</th>
+                            <th scope="col">Parties Info</th>
                             <th scope="col">Manage</th>
                             <th scope="col">Delete</th>
 
@@ -47,15 +48,13 @@
                                     <button class="btn btn-secondary">
                                     <i class="bi-info"></i>
                                     </button></td>
-                                {{-- @foreach($viewData['client'] as $client)
                                 <td>
-                                    <a href="{{ route('admin.client.show',['id' => $client->id]) }}">
-                                        <button class="btn btn-primary">
-                                        <i class="bi-info"></i>
-                                        </button>
-
-                               </td>
-                                 @endforeach --}}
+                                    <a href="{{ route('admin.party.showParties',['id' => $case->id]) }}">
+                                                      <button class="btn btn-primary">
+                                                        <i class="bi-info"></i>
+                                                        </button>
+                                     </a>
+                                 </td>
 
                                 @if(Auth::user()->role->role=='supperAdmin')
                                     <td>

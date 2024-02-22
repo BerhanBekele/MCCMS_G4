@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 14, 2024 at 12:54 PM
+-- Generation Time: Feb 21, 2024 at 12:24 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.1.25
 
@@ -46,16 +46,17 @@ CREATE TABLE `cases` (
 --
 
 INSERT INTO `cases` (`id`, `case_description`, `case_type`, `case_status`, `email`, `court_id`, `client_id`, `judge_id`, `lawyer_id`, `created_at`, `updated_at`) VALUES
-(1, 'Stalling weapon from friend and soled to civilian. Stalling weapon from friend and soled to civilian.', 'criminal', 'terminated', 'dagne@gmail.com', 2, 1, 2, 1, '2024-02-09 06:23:00', '2024-02-14 03:47:55'),
-(2, 'Stalling weapon from friend and soled to civilian', 'criminal', 'Started', 'alebachew@gmail.com', 2, 2, 2, 2, '2024-02-06 12:17:59', '2024-02-07 13:25:19'),
-(3, 'Stalling weapon from friend and soled to civilian, Stalling weapon from friend and soled to civilian', 'disciplen', 'On Progress', 'alebachew@gmail.com', 2, 2, 2, 1, '2024-02-09 06:24:00', '2024-02-10 03:24:07'),
-(4, 'Stalling weapon from friend and soled to civilian', 'disciplen', 'Pending', 'alebachew@gmail.com', 1, 1, 1, 1, '2024-02-06 12:24:22', '2024-02-06 12:24:22'),
-(5, 'Stalling weapon from friend and soled to civilian', 'disciplen', 'Pending', 'alebachew@gmail.com', 1, 2, 1, 1, '2024-02-06 12:27:00', '2024-02-06 12:27:00'),
+(1, 'Stalling weapon from friend and soled to civilian. Stalling weapon from friend and soled to civilian.', 'criminal', 'terminated', 'dagne@gmail.com', 2, 1, 4, 1, '2024-02-09 06:23:00', '2024-02-20 08:36:00'),
+(2, 'Stalling weapon from friend and soled to civilian', 'crimina', 'Started', 'alebachew@gmail.com', 2, 2, 4, 2, '2024-02-06 12:17:59', '2024-02-20 03:53:28'),
+(3, 'Stalling weapon from friend and soled to civilian, Stalling weapon from friend and soled to civilian', 'disciplen', 'Started', 'alebachew@gmail.com', 2, 2, 2, 1, '2024-02-09 06:24:00', '2024-02-28 05:30:07'),
+(4, 'Stalling weapon from friend and soled to civilian12', 'disciplen23', 'Pending', 'alebachew@gmail.com', 1, 1, 4, 1, '2024-02-19 12:24:22', '2024-02-21 02:55:50'),
+(5, 'Stalling weapon from friend and soled to civilian Stalling weapon from friend and soled to civilian', 'disciplen', 'Pending', 'alebachew@gmail.com', 1, 2, 4, 1, '2024-02-06 12:27:00', '2024-02-21 03:29:39'),
 (6, 'Killed his teammate while they were in duty', 'murder', 'Pending', 'dagne@gmail.com', 1, 2, 1, 2, '2024-02-06 12:41:52', '2024-02-06 12:41:52'),
 (15, 'Fight with his teammeat', 'disciplen', 'Pending', 'admincases@gmail.com', 1, 1, 1, 1, '2024-02-07 03:36:50', '2024-02-07 03:36:50'),
 (16, 'The Suspected person was arrested while he is scaping the camp.', 'criminal', 'On Progress', 'dagne@gmail.com', 2, 2, 2, 2, '2024-02-10 06:23:00', '2024-02-10 03:23:39'),
 (17, 'sxsac', 'disciplen', 'Pending', 'dagne@gmail.com', 1, 1, 1, 2, '2024-02-12 10:57:37', '2024-02-12 10:57:37'),
-(18, 'aSAs', 'disciplen', 'Pending', 'admincases@gmail.com', 1, 2, 1, 1, '2024-02-12 11:00:26', '2024-02-12 11:00:26');
+(19, 'yuuyu', 'disciplen', 'Pending', 'dagne@gmail.com', 1, 4, 1, 0, '2024-02-21 03:58:21', '2024-02-21 03:58:21'),
+(20, 'ms', 'criminal', 'Pending', 'alebachew@gmail.com', 1, 2, 1, 0, '2024-02-21 08:21:44', '2024-02-21 08:21:44');
 
 -- --------------------------------------------------------
 
@@ -81,7 +82,11 @@ CREATE TABLE `clients` (
 
 INSERT INTO `clients` (`id`, `client_name`, `dob`, `sex`, `client_address`, `phone_number`, `client_photo`, `created_at`, `updated_at`) VALUES
 (1, 'Tamene Taye', '1986-01-31', 'male', 'Addis Ababa', '0925368916', 'Tamene Taye.webp', '2024-02-12 09:50:41', '2024-02-12 09:50:41'),
-(2, 'Jemila Tufa', '1989-02-07', 'female', 'Addis Ababa', '0925368256', 'Jemila Tufa.jpg', '2024-02-12 09:52:03', '2024-02-12 09:52:03');
+(2, 'Jemila Tufa', '1989-02-07', 'female', 'Addis Ababa', '0925368256', 'Jemila Tufa.jpg', '2024-02-12 09:52:03', '2024-02-12 09:52:03'),
+(3, 'Selam Solomon', '2024-02-20', 'female', 'Debre-zeit', '0433912425', 'Selam Solomon.webp', '2024-02-20 08:33:36', '2024-02-20 08:33:36'),
+(4, 'Selam Solomon', '2024-02-19', 'male', 'Addis Ababa', '0112348737', 'Selam Solomon.png', '2024-02-20 08:42:25', '2024-02-20 08:42:26'),
+(5, 'Selam Solomon', '1985-02-15', 'male', 'Addis Ababa', '0112348737', 'Selam Solomon.png', '2024-02-21 03:11:54', '2024-02-21 03:11:54'),
+(6, 'Samson Haile', '1980-02-23', 'male', 'Adama', '0912675643', 'Samson Haile.jpg', '2024-02-21 08:23:08', '2024-02-21 08:23:08');
 
 -- --------------------------------------------------------
 
@@ -506,13 +511,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `cases`
 --
 ALTER TABLE `cases`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `court`

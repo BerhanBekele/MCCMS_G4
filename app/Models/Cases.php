@@ -28,4 +28,7 @@ class Cases extends Model
     public function Lawyer(){
         return $this->belongsTo(Lawyer::class);
     }
+    public function Party(){
+        return $this->belongsTo(Cases::class);
+    }
 }

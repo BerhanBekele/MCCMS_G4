@@ -34,27 +34,40 @@ use Illuminate\Support\Facades\Route;
 Route::get('/','App\Http\Controllers\HomeController@index')->name("home.index");
 Route::get('about','App\Http\Controllers\HomeController@about')->name("home.about");
 
+//case
 Route::get('cases','App\Http\Controllers\Admin\AdminCaseController@index')->name("admin.case.index");
 Route::get('clientCases','App\Http\Controllers\Admin\AdminCaseController@clientCases')->name("admin.case.index");
 Route::get('newCase','App\Http\Controllers\Admin\AdminCaseController@create')->name("admin.case.create");
 Route::post('saveNewCase','App\Http\Controllers\Admin\AdminCaseController@save')->name("admin.case.save");
 Route::get('caseName','App\Http\Controllers\Admin\AdminClientController@clientName')->name("admin.case.create");
 
-
+//case asign
 Route::get('delete','App\Http\Controllers\Admin\AdminCaseController@delete')->name("admin.case.delete");
 Route::get('asign','App\Http\Controllers\Admin\AdminCaseController@asign')->name("admin.case.asign");
 Route::put('/case/{id}/update','App\Http\Controllers\Admin\AdminCaseController@update')->name("admin.case.update");
 Route::get('/case/{id}/edit','App\Http\Controllers\Admin\AdminCaseController@edit')->name("admin.case.edit");
 Route::get('/case/{id}/delete','App\Http\Controllers\Admin\AdminCaseController@delete')->name("admin.case.delete");
 
+//judge
 Route::get('asignedCases','App\Http\Controllers\Admin\AdminJudgeController@asignedCases')->name("admin.judge.asignedCases");
 Route::get('/judge/{id}/editCase','App\Http\Controllers\Admin\AdminJudgeController@editCase')->name("admin.judge.editCase");
 Route::put('/judge/{id}/updateCase','App\Http\Controllers\Admin\AdminJudgeController@updateCase')->name("admin.judge.updateCase");
 
+//plaintiff
 Route::get('clients','App\Http\Controllers\Admin\AdminClientController@index')->name("admin.client.index");
 Route::get('newClient','App\Http\Controllers\Admin\AdminClientController@create')->name("admin.client.create");
 Route::get('/client/{id}/show','App\Http\Controllers\Admin\AdminClientController@show')->name("admin.client.show");
 Route::post('saveNewClient','App\Http\Controllers\Admin\AdminClientController@save')->name("admin.client.save");
+
+//parties
+Route::get('/party/{id}/create','App\Http\Controllers\Admin\AdminPartyController@SearchCase')->name("admin.party.create");
+Route::post('saveParty','App\Http\Controllers\Admin\AdminPartyController@save')->name("admin.party.save");
+Route::get('/party/{id}/viewParties','App\Http\Controllers\Admin\AdminPartyController@showParties')->name("admin.party.showParties");
+Route::get('/party/showParties','App\Http\Controllers\Admin\AdminPartyController@showParties')->name("admin.party.showParties");
+Route::get('/party/{id}/edit','App\Http\Controllers\Admin\AdminPartyController@edit')->name("admin.party.edit");
+Route::put('/party/{id}/update','App\Http\Controllers\Admin\AdminPartyController@update')->name("admin.party.update");
+Route::get('/party/{id}/delete','App\Http\Controllers\Admin\AdminPartyController@delete')->name("admin.party.delete");
+
 
 // Route::get('/','App\Http\Controllers\Admin\AdminJudgeController@AsignedCases')->name("admin.judge.AsignedCases");
 

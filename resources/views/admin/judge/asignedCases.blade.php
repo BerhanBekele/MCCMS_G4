@@ -14,6 +14,7 @@
                             <th scope="col">Case Description</th>
                             <th scope="col">Case Status</th>
                             <th scope="col">Plaintiff </th>
+                            <th scope="col">Parties Info </th>
                             <th scope="col">Case Created Date</th>
                             <th scope="col">Asigned Prosecutor</th>
                             <th scope="col">Court</th>
@@ -31,10 +32,14 @@
                                 <td>{{$case->case_type}}</td>
                                 <td>{{$case->case_description}}</td>
                                 <td>{{$case->case_status}}</td>
-                               {{-- @foreach($viewData['client'] as $client)
-                                <td>{{$client->client_id}}</td>
-                                 @endforeach --}}
                                  <td>{{$case->client_name}}</td>
+                                 <td>
+                                 <a href="{{ route('admin.party.showParties',['id' => $case->id]) }}">
+                                    <button class="btn-secondary">
+                                      <i class="bi-info"></i>
+                                      </button>
+                                     </a>
+                                     </td>
                                 <td>{{$case->created_at}}</td>
                                 <td>{{$case->judge_name}}</td>
                                 <td>{{$case->court_name}}</td>
