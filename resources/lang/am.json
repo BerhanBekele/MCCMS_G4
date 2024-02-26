@@ -25,12 +25,14 @@
 "Confirm Password":"የይለፍ ቃል አረጋግጥ",
 "Register":"መዝገብ",
 "Edit":"መዝገብ",
+"View":"እይታ",
 "Submit":"አስገባ",
 "New User Registration":"የአዲስ ተጠቃሚ መመዝገቢያ",
 "Create Plaintiff":"አዲስ ከሳሽ ይመዝገቡ",
 "Created Plaintiffs":"የተመዘገቡ ከሳሾች",
 "Create Case":"አዲስ ጉዳይ ይመዝገቡ",
 "Create Parties":"ፓርቲዎች መዘግቡ ",
-"Created Parties":"የተመዘገቡ ፓርቲዎች"
+"Created Parties":"የተመዘገቡ ፓርቲዎች",
+"Search":"ፈልግ"
 
 }

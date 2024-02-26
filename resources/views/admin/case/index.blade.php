@@ -2,18 +2,29 @@
 @section('title',$viewData['title'])
 @section('content')
     <div class="card-header">
+        @if ($errors->any())
+        <ul class="alert alert-danger list-unstyled">
+            @foreach ($errors->all() as $error)
+                <li>* {{ $error }}</li>
+            @endforeach
+        </ul>
+    @endif
         <h2> {{ __('Created Cases') }}</h2>
     </div>
         <div class="card">
             <div class= "card-body">
                 <div>
+                    <form action="{{ route('admin.case.search') }}" method="POST">
+                        @csrf
+                       <input name="id"   placeholder="Search by case  ID">
+                        <button type="submit" class="btn btn-primary"> {{ __('Search') }} </button>
+                    </form>
                     <a href="{{ route('admin.case.create')}}">
                         <button type="button" class="btn btn-primary float-end">
                             {{ __('Create Case') }}
                         </button>
                     </a>
                 </div>
-
                 <table class= "table table-bordered table-striped">
                     <thead>
                         <tr >
@@ -51,15 +62,15 @@
                                 </td>
                                 <td>
                                     <a href="{{ route('admin.party.showParties',['id' => $case->id]) }}">
-                                                <button class="btn btn-primary"> View
+                                                <button class="btn btn-primary">  {{ __('View') }}
                                                 {{-- <i class="bi-pencil"></i> --}}
                                                 </button>
                                     </a>
                                 </td>
-
                         @endforeach
                     </tbody>
                 </table>
+             {{-- </form> --}}
             </div>
         </div>
 @endsection

@@ -1,4 +1,4 @@
-@extends('layouts.judge')
+@extends('layouts.app')
 @section('title',$viewData['title'])
 @section('content')
     <div class="card-header">
@@ -6,11 +6,10 @@
     </div>
         <div class="card">
             <div class= "card-body">
-                <form action="{{ route('admin.judge.searchAsignedCases') }}" method="POST">
+                <form action="{{ route('admin.case.searchCase') }}" method="POST">
                 @csrf
                <input name="id"   placeholder="Search by case  ID">
                 <button type="submit" class="btn btn-primary"> {{ __('Search') }} </button>
-                </form>
                 <table class= "table table-bordered table-striped">
                     <thead>
                         <tr>
@@ -25,8 +24,6 @@
                             <th scope="col">Court</th>
                             <th scope="col">Asigned Judge</th>
                             <th scope="col">Appointment Date</th>
-                            <th scope="col">Edit Case Desc</th>
-                            {{-- <th scope="col">Delete</th> --}}
 
                         </tr>
                     </thead>
@@ -50,26 +47,6 @@
                                 <td>{{$case->court_name}}</td>
                                 <td>{{$case->lawyer_name}}</td>
                                 <td>{{$case->updated_at}}</td>
-
-
-                                @if(Auth::user()->role->role=='judge')
-                                    <td>
-                                        <a href="{{ route('admin.judge.editCase',['id' => $case->id]) }}">
-                                                    <button class="btn btn-primary">
-                                                    <i class="bi-pencil"></i>
-                                                    </button>
-                                        </a>
-                                    </td>
-                                    {{-- <td>
-                                        <a href="{{ route('admin.case.delete',$case->id) }}" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button class="btn btn-danger">
-                                                <i class="bi-trash"></i>
-                                            </button>
-                                        </a>
-                                    </td> --}}
-                                  @endif
                             </tr>
                         @endforeach
                     </tbody>

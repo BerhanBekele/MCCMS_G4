@@ -12,8 +12,21 @@ use Illuminate\Support\Facades\Auth;
 
 class AdminCaseController extends Controller
 {
-    public function clientCases(){
+    public function index(){
+        $viewData=[];
+        $viewData["title"] = "Created Cases";
+        // $viewData["cases"] = Cases::all();
+        $viewData["cases"] = Client::join('Cases', 'cases.client_id', '=',  'clients.id')
+                    ->select('cases.*', 'clients.client_name as client_name')->get();
+                // ->select('cases.id', 'cases.case_description' ,'cases.case_type', 'cases.case_status',
+                // 'cases.email', 'cases.created_at' ,'cases.updated_at',
+                // 'clients.id as clients_id', 'clients.client_name as client_name')->get();
 
+        return view('admin.case.index')->with("viewData",$viewData);
+
+    }
+
+    public function clientCases(){
         $email = Auth::user()->email;
         $name = Auth::user()->name;
         echo "<b><i>You are logged-in user name:".$name."</i></b>";
@@ -32,25 +45,30 @@ class AdminCaseController extends Controller
         return view('admin.case.index')->with("viewData",$viewData);
 
     }
-    public function index(){
-        $viewData=[];
-        $viewData["title"] = "Created Cases";
-        $viewData["cases"] = Cases::all();
-        $viewData["client"] = Client::join('Cases', 'cases.client_id', '=', 'id')
-                ->select('cases.*', 'clients.client_name as client_name')->get();
-        return view('admin.case.index')->with("viewData",$viewData);
 
-    }
 
     public function asign(){
         $viewData=[];
         $viewData["title"] = "Created Cases";
-        //$viewData["cases"] = Cases::all();
+        // $viewData["cases"] = Cases::all();
         $viewData["cases"] = Cases::join('judge', 'cases.judge_id', '=', 'judge.id')
                                   ->join('court', 'cases.court_id', '=', 'court.id')
                                   ->join('lawyer', 'cases.lawyer_id', '=', 'lawyer.id')
         ->select('cases.*', 'judge.judge_name', 'court.court_name','lawyer.lawyer_name')
         ->get();
+        $viewData["client"] = Client::all();
+
+        return view('admin.case.asign')->with("viewData",$viewData);
+    }
+    public function searchAsigned(Request $request){
+        $viewData=[];
+        $viewData["title"] = "Created Cases";
+        // $viewData["cases"] = Cases::all();
+        $viewData["cases"] = Cases::join('judge', 'cases.judge_id', '=', 'judge.id')
+                                  ->join('court', 'cases.court_id', '=', 'court.id')
+                                  ->join('lawyer', 'cases.lawyer_id', '=', 'lawyer.id')
+        ->select('cases.*', 'judge.judge_name', 'court.court_name','lawyer.lawyer_name')
+        ->where('cases.id',$request->id)-> get();
         $viewData["client"] = Client::all();
 
         return view('admin.case.asign')->with("viewData",$viewData);
@@ -104,4 +122,24 @@ public function delete($id){
             Cases::destroy($id);
             return back();
     }
+
+//start added by Debebe
+public function search(Request $request)
+    {
+        // $query = Cases::query();
+        echo "debe:".$request->id;
+        $viewData=[];
+         $viewData["title"] = "Created Case";
+        //  $viewData["cases"] = Cases::findOrFail($id);
+         $viewData["cases"] = Client::join('Cases', 'cases.client_id', '=', 'clients.id')
+                ->select('cases.id', 'cases.case_description' ,'cases.case_type', 'cases.case_status',
+                'cases.email', 'cases.created_at' ,'cases.updated_at',
+                'clients.id as clients_id', 'clients.client_name as client_name')->where('cases.id',$request->id)->get();
+
+         return view('admin.case.index')->with("viewData", $viewData);
+    }
+
+
+    // end added by Debebe
+
 }

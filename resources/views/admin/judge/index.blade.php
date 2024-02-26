@@ -5,7 +5,8 @@
         <h2> Created Cases</h2>
     </div>
         <div class="card">
-            <div class= "card-body">
+
+              <div class= "card-body">
                 <div>
                     <a href="{{ route('admin.case.create')}}">
                         <button type="button" class="btn btn-primary float-end">
@@ -35,7 +36,7 @@
                                 <td>{{$case->case_status}}</td>
                                 <td>{{$case->created_at}}</td>
                                 <td>{{$case->updated_at}}</td>
-                                {{--@if(Auth::user()->role->role=='admin')
+                                @if(Auth::user()->role->role=='admin')
                                     <a href="{{ route('admin.case.edit',['id' => $case->id]) }}">
                                             <button class="btn btn-primary">
                                               <i class="bi-pencil"></i>
@@ -52,7 +53,7 @@
                                     </form>
                                  @endif
 
-                                </td> --}}
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>

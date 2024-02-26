@@ -29,6 +29,7 @@ class AdminClientController extends Controller
             $viewData["title"] = "Online Case Client information";
             $viewData["subtitle"] ="Client information";
             $viewData["client"] = Client::findOrFail($id);
+
             return view('admin.client.show')->with("viewData", $viewData);
 
    }

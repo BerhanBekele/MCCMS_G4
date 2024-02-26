@@ -18,10 +18,11 @@ class AdminPartyController extends Controller
         return view('admin.party.index')->with("viewData",$viewData);
 
     }
-    public function showParties($case_id){
+    public function showParties($id){
+        echo "case_id".$id;
         $viewData=[];
         $viewData["title"] = "Created Party";
-        $viewData["parties"] = Party::where('case_id',$case_id)->get();
+        $viewData["parties"] = Party::where('case_id',$id)->get();
         return view('admin.party.show')->with("viewData",$viewData);
 
     }

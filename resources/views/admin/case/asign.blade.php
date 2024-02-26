@@ -6,13 +6,11 @@
     </div>
         <div class="card">
             <div class= "card-body">
-                {{-- <div>
-                    <a href="{{ route('admin.case.create')}}">
-                        <button type="button" class="btn btn-primary float-end">
-                            create Case
-                        </button>
-                    </a>
-                </div> --}}
+                <form action="{{ route('admin.case.searchAsigned') }}" method="POST">
+                    @csrf
+                   <input name="id"   placeholder="Search by case  ID">
+                    <button type="submit" class="btn btn-primary"> {{ __('Search') }} </button>
+                </form>
                 <table class= "table table-bordered table-striped">
                     <thead>
                         <tr>
@@ -28,7 +26,7 @@
                             <th scope="col">Plaintiff Info</th>
                             <th scope="col">Parties Info</th>
                             <th scope="col">Manage</th>
-                            <th scope="col">Delete</th>
+                            {{-- <th scope="col">Delete</th> --}}
 
                         </tr>
                     </thead>
@@ -64,7 +62,7 @@
                                                     </button>
                                         </a>
                                     </td>
-                                    <td>
+                                    {{-- <td>
                                         <a href="{{ route('admin.case.delete',$case->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
@@ -72,12 +70,13 @@
                                                 <i class="bi-trash"></i>
                                             </button>
                                         </a>
-                                    </td>
+                                    </td> --}}
                                   @endif
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
+
             </div>
         </div>
 @endsection

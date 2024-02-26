@@ -35,6 +35,7 @@
 
                         @if(Auth::user()->role->role=='judge' or Auth::user()->role->role=='clark' or Auth::user()->role->role=='supperAdmin')
                          <a class ="nav-link active" href="{{route('admin.case.index')}}"> {{ __('Cases') }}</a>
+                         {{-- <a class ="nav-link active" href="{{route('admin.case.searchCase')}}"> {{ __('Search Cases') }}</a> --}}
                          <div class=" vr bg-with mx-2 d-none d-lg-block"></div>
                          <a class ="nav-link active" href="{{route('admin.client.index')}}"> {{ __('Plaintiff') }}</a>
                          <div class=" vr bg-with mx-2 d-none d-lg-block"></div>
