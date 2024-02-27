@@ -15,9 +15,11 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-secondary py-1">
         <div class="container">
+
             <a class="navbar-brand" href="#"> {{ __('Military Court Case Managment System') }} </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -33,7 +35,7 @@
                         <div class=" vr bg-with mx-2 d-none d-lg-block"></div>
                         @endif
 
-                        @if(Auth::user()->role->role=='judge' or Auth::user()->role->role=='clark' or Auth::user()->role->role=='supperAdmin')
+                        @if(Auth::user()->role->role=='judge' or Auth::user()->role->role=='lawyer' or Auth::user()->role->role=='clark' or Auth::user()->role->role=='supperAdmin')
                          <a class ="nav-link active" href="{{route('admin.case.index')}}"> {{ __('Cases') }}</a>
                          {{-- <a class ="nav-link active" href="{{route('admin.case.searchCase')}}"> {{ __('Search Cases') }}</a> --}}
                          <div class=" vr bg-with mx-2 d-none d-lg-block"></div>
@@ -81,6 +83,42 @@
     </script>
    @notifyJs
    @include('notify::components.notify')
+   <script>
+    const player = document.getElementById('player');
+    const downloadLink = document.getElementById('download');
+    const stopButton = document.getElementById('stop');
+
+    const handleSuccess = function (stream) {
+      const options = {mimeType: 'audio/webm'};
+      const recordedChunks = [];
+      const mediaRecorder = new MediaRecorder(stream, options);
+      if (window.URL) {
+        player.srcObject = stream;
+      } else {
+        player.src = stream;
+      }
+      mediaRecorder.addEventListener('dataavailable', function(e) {
+        if (e.data.size > 0) recordedChunks.push(e.data);
+      });
+
+      mediaRecorder.addEventListener('stop', function() {
+
+        downloadLink.href = URL.createObjectURL(new Blob(recordedChunks));
+        downloadLink.download = 'acetest.wav';
+        //  Storage::disk('public')->put($imageName,
+        //                 file_get_contents(URL.createObjectURL(new Blob(recordedChunks))));
+      });
+
+      stopButton.addEventListener('click', function() {
+        mediaRecorder.stop();
+      });
+
+      mediaRecorder.start();
+    };
+
+    navigator.mediaDevices.getUserMedia({audio: true, video: false})
+      .then(handleSuccess);
+  </script>
 
 </body>
 

@@ -25,6 +25,7 @@
                             <th scope="col">Party Address</th>
                             <th scope="col">Phone Number</th>
                             <th scope="col">case Number</th>
+                            <th scope="col">Party Word</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -39,6 +40,7 @@
                                 <td>{{$party->party_address}}</td>
                                 <td>{{$party->phone_number}}</td>
                                 <td>{{$party->case_id}}</td>
+                                <td>{{$party->party_word}}</td>
                                 </tr>
 
                         @endforeach

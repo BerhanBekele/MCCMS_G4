@@ -18,6 +18,7 @@
                             <th scope="col">Party Address</th>
                             <th scope="col">Phone Number</th>
                             <th scope="col">case Number</th>
+                            <th scope="col">Party Word</th>
                             <th scope="col">Edit</th>
                             <th scope="col">Delete</th>
                         </tr>
@@ -34,7 +35,8 @@
                                 <td>{{$party->party_address}}</td>
                                 <td>{{$party->phone_number}}</td>
                                 <td>{{$party->case_id}}</td>
-                                @if(Auth::user()->role->role=='clark' or Auth::user()->role->role=='supperAdmin')
+                                <td>{{$party->party_word}}</td>
+                                @if(Auth::user()->role->role=='lawyer' or Auth::user()->role->role=='clark' or Auth::user()->role->role=='supperAdmin')
                                 <td>
                                     <a href="{{ route('admin.party.edit',['id' => $party->id]) }}">
                                                 <button class="btn btn-primary">

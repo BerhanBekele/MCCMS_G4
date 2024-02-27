@@ -29,6 +29,7 @@
                         <select  id="party_type" class="form-control form-select @error('caseType') is-invalid @enderror" name="party_type">
                          <option value="{{ $viewData['party']->party_type }}" selected>{{ $viewData['party']->party_type }}</option>
                          <option value="Select Case Type" >Select Party Type</option>
+                         <option value="prosecutor">prosecutor</option>
                          <option value="PlaintiffWitness">Plaintiff Witness</option>
                          <option value="Accused">Accused</option>
                          <option value="Attorny">Attorny</option>
@@ -67,7 +68,15 @@
                         <label class="form-label">Phone Number</label>
                         <input name="phone_number" value="{{ $viewData['party']->phone_number }}" type="text" class="form-control">
                         </div>
-
+                        <div class="mb-3">
+                            <label class="form-label">Party Word</label>
+                            <textarea  class="form-control" name="party_word" rows="3">{{ $viewData['party']->party_word }}</textarea>
+                        </div>
+                        <div class="mb-3">
+                            {{-- source https://web.dev/articles/media-recording-audio --}}
+                            <label class="form-label">Audio Word</label>
+                                    <audio id="player" controls></audio>
+                      </div>
                             <button type="submit" class="btn btn-primary"> {{ __('Edit') }}</button>
 
                     </div>

@@ -63,6 +63,17 @@ class AdminJudgeController extends Controller
         return view('admin.judge.editCases')->with("viewData",$viewData);
 
     }
+    public function editCaseDecision($id){
+
+        $viewData=[];
+        $viewData["title"] = "Admin Page - Admin - Online Cases ";
+        $viewData["case"] = Cases::findOrFail($id);
+        // $viewData["case"] = Cases::with('court')->findOrFail($id);
+        // $viewData["judge"] = Judge::all();
+        // $viewData["court"] = Court::all();
+        return view('admin.judge.caseDecision')->with("viewData",$viewData);
+
+    }
     public function updateCase(Request $request,$id){
         echo "case updated!";
         //Cases::validate($request);
@@ -71,9 +82,22 @@ class AdminJudgeController extends Controller
         $case->case_description=$request->input('case_description');
         $case->created_at=$request->input('created_at');
         $case->save();
+        notify()->success("Case Description Updated successfully", " MCCMS");
         return redirect()->route('admin.judge.asignedCases');
 
         }
+        public function updateCaseDecision(Request $request){
+            echo $request->id." is case updated! ";
+            echo $request->case_decision." is case decision! ";
+            echo $request->case_type." is case decision! ";
+            $case=Cases::findOrFail($request->id);
+            $case->case_decision=$request->case_decision;//input('case_decision');
+            $case->updated_at=$request->input('updated_at');
+            $case->save();
+           notify()->success("Case Decision Added successfully", " MCCMS");
+           return redirect()->route('admin.judge.asignedCases');
+
+            }
         public function searchAsignedCases(Request $request){
             $email = Auth::user()->email;
             $name = Auth::user()->name;

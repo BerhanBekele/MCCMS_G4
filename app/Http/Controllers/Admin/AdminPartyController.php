@@ -52,9 +52,10 @@ class AdminPartyController extends Controller
     $newParty->educ_level=$request->input('educ_level');
     $newParty->party_address=$request->input('party_address');
     $newParty->phone_number=$request->input('phone_number');
+    $newParty->party_word=$request->input('party_word');
 
    $newParty->save();
-    notify()->success("Party Added  successfully", " MCCMS");
+    notify()->success("Party information Added  successfully", " MCCMS");
     //return back();
     return redirect()->route('admin.case.index');
 
@@ -63,7 +64,6 @@ class AdminPartyController extends Controller
         $viewData=[];
         $viewData["title"] = "Created Party";
         $viewData["party"] = Party::findOrFail($id);
-        // notify()->success("Party Added  successfully", " MCCMS");
         return view('admin.party.edit')->with("viewData",$viewData);
 
     }
@@ -77,8 +77,9 @@ class AdminPartyController extends Controller
         $party->educ_level=$request->input('educ_level');
         $party->party_address=$request->input('party_address');
         $party->phone_number=$request->input('phone_number');
+        $party->party_word=$request->input('party_word');
         $party->save();
-        notify()->success("Party updated  successfully", " MCCMS");
+        notify()->success("Party information updated  successfully", " MCCMS");
 
         return $this->showParties($request->case_id);
 

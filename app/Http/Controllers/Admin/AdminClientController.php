@@ -59,6 +59,7 @@ class AdminClientController extends Controller
         $newClient->client_photo = $imageName;
         $newClient->save();
     }
+    notify()->success("Client Added successfully", " MCCMS");
     return redirect()->route('admin.client.index');
 
     }

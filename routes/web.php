@@ -59,6 +59,8 @@ Route::get('/judge/{id}/editCase','App\Http\Controllers\Admin\AdminJudgeControll
 Route::put('/judge/{id}/updateCase','App\Http\Controllers\Admin\AdminJudgeController@updateCase')->name("admin.judge.updateCase");
 Route::post('searchAsignedCases','App\Http\Controllers\Admin\AdminJudgeController@searchAsignedCases')->name("admin.judge.searchAsignedCases");
 
+Route::get('/judge/{id}/caseDecision','App\Http\Controllers\Admin\AdminJudgeController@editCaseDecision')->name("admin.judge.caseDecision");
+Route::put('/judge/{id}/updateCaseDecision','App\Http\Controllers\Admin\AdminJudgeController@updateCaseDecision')->name("admin.judge.updateCaseDecision");
 //plaintiff
 Route::get('clients','App\Http\Controllers\Admin\AdminClientController@index')->name("admin.client.index");
 Route::get('newClient','App\Http\Controllers\Admin\AdminClientController@create')->name("admin.client.create");

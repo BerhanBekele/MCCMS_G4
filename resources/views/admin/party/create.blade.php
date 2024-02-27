@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('title', $viewData['title'])
 @section('content')
+
    <div class="card mb-4">
        <div class="card-header"> <h3> {{ __('Create Parties') }}</h3> </div>
        <div class="card-body">
@@ -28,6 +29,7 @@
                     <div class="col-lg-10 col-md-6 col-sm-12">
                         <select  id="party_type" class="form-control form-select @error('caseType') is-invalid @enderror" name="party_type">
                          <option value="Select Case Type" selected>Select Party Type</option>
+                         <option value="prosecutor">prosecutor</option>
                          <option value="Plaintiff Witness">Plaintiff Witness</option>
                          <option value="Accused">Accused</option>
                          <option value="Attorny">Attorny</option>
@@ -65,21 +67,33 @@
                         <label class="form-label">Phone Number</label>
                         <input name="phone_number" value="{{ old('phone_number') }}" type="text" class="form-control">
                         </div>
-                          {{-- <div class="col-md-6">
-                            <label class="form-label">Plaintiff Photo:</label>
-                             <div class="col-lg-12 col-md-3 col-sm-12">
-                                <input class="form-control" type="file" name="client_photo" value="{{ old('client_photo') }}">
-                                {{-- <input class="form-control" type="file" name="image">
-                              </div>
-                            </div>
-                            --}}
+                        <div class="mb-3">
+                            <label class="form-label">Party Word</label>
+                            <textarea  class="form-control" name="party_word" rows="3" value="party_word">{{ old('party_word') }}</textarea>
+                        </div>
+                        <div class="mb-3">
+                              {{-- source https://web.dev/articles/media-recording-audio --}}
 
-                            <button type="submit" class="btn btn-primary"> {{ __('Submit') }}</button>
+                        </div>
+
+
+                        <button type="submit" class="btn btn-primary"> {{ __('Submit') }}</button>
 
                     </div>
 
            </form>
        </div>
    </div>
+   <div class="card mb-4">
+    <div class="card-header"> <h3> {{ __('Audio Word') }}</h3> </div>
+    <div class="card-body">
+   <audio id="player" controls>NN</audio> <a id="download">   {{ __('Save') }}   <button id="stop">   {{ __('Stop') }} </button></a>
+
+
+    </div>
+</div>
+
+
+
 @endsection
 

@@ -89,6 +89,7 @@ public function save(Request $request){
     $newCase->client_id=$request->input('client_id');
     $newCase->case_status='Pending';
     $newCase->save();
+    notify()->success("Case Added successfully", " MCCMS");
     return redirect()->route('admin.case.index');
 
     }
@@ -115,11 +116,13 @@ public function save(Request $request){
         $case->court_id=$request->input('court_id');
         $case->updated_at=$request->input('updated_at');
         $case->save();
+        notify()->success("Case  Updated successfully", " MCCMS");
         return redirect()->route('admin.case.asign');
 
         }
 public function delete($id){
             Cases::destroy($id);
+            notify()->success("Case deleted successfully", " MCCMS");
             return back();
     }
 

@@ -11,7 +11,7 @@
                <input name="id"   placeholder="Search by case  ID">
                 <button type="submit" class="btn btn-primary"> {{ __('Search') }} </button>
                 </form>
-                <table class= "table table-bordered table-striped">
+                <table class= "table table-bordered table-striped  align-middle">
                     <thead>
                         <tr>
                             <th scope="col">Id</th>
@@ -26,6 +26,7 @@
                             <th scope="col">Asigned Judge</th>
                             <th scope="col">Appointment Date</th>
                             <th scope="col">Edit Case Desc</th>
+                            <th scope="col">Add Case Decision</th>
                             {{-- <th scope="col">Delete</th> --}}
 
                         </tr>
@@ -38,10 +39,10 @@
                                 <td>{{$case->case_description}}</td>
                                 <td>{{$case->case_status}}</td>
                                  <td>{{$case->client_name}}</td>
-                                 <td>
+                                 <td aligne="center">
                                  <a href="{{ route('admin.party.showParties',['id' => $case->id]) }}">
                                     <button type="submit" class="btn-secondary">
-                                      <i class="bi-info"></i>
+                                      <i  class="bi-info"></i>
                                       </button>
                                      </a>
                                      </td>
@@ -51,10 +52,22 @@
                                 <td>{{$case->lawyer_name}}</td>
                                 <td>{{$case->updated_at}}</td>
 
-
+                                {{-- judge role indicate for Prosecutor --}}
                                 @if(Auth::user()->role->role=='judge')
                                     <td>
                                         <a href="{{ route('admin.judge.editCase',['id' => $case->id]) }}">
+                                                    <button class="btn btn-primary">
+                                                    <i class="bi-pencil"></i>
+                                                    </button>
+                                        </a>
+                                    </td>
+                                    <td>  --||--</td>
+                                    @endif
+                                    {{-- lawyer role indicate for judge --}}
+                                    @if(Auth::user()->role->role=='lawyer')
+                                    <td>--||--</td>
+                                    <td>
+                                        <a href="{{ route('admin.judge.caseDecision',['id' => $case->id]) }}">
                                                     <button class="btn btn-primary">
                                                     <i class="bi-pencil"></i>
                                                     </button>

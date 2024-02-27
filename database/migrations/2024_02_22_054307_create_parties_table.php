@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('party_address');
             $table->string('phone_number');
             $table->unsignedBigInteger('case_id');
+            $table->string('party_word');
             $table->foreign('case_id')->references('id')->on('Cases');
             $table->timestamps();
         });

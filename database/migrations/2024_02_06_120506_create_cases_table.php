@@ -31,7 +31,9 @@ return new class extends Migration
             $table->unsignedBigInteger('court_id')->default('0');
             // $table->foreign('court_id')->references('id')->on('court');
             $table->unsignedBigInteger('judge_id')->default('0');
+            $table->unsignedBigInteger('lawyer_id')->default('0');
             // $table->foreign('judge_id')->references('id')->on('judge');
+            $table->string('case_decision');
             $table->timestamps();
         });
     }

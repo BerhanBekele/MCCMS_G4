@@ -4,19 +4,19 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    @notifyCss
     <link href="{{ asset('/css/admin.css') }}" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="icon" href="{{ asset('/images/justicLogo.png') }}" type="image/x-icon">
     <title>@yield('title', 'Admin - Court Cases')</title>
+    @notifyCss
 </head>
 
 
 <body>
     <div class="row g-0">
         <!-- sidebar -->
-        <div class="p-3 vh-100 col-lg-2 fixed text-white bg-dark">
+        <div class="p-3 vh-100 col-lg-2 container-fluid text-white bg-dark">
             {{-- <a href="{{ route('admin.home.index') }}" class="text-white text-decoration-none">
                 <span class="fs-4"><h3> Admin Panel<h3> </span>  </a> --}}
 
