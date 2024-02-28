@@ -2,7 +2,7 @@
 @section('title', $viewData['title'])
 @section('content')
    <div class="card mb-4">
-       <div class="card-header"> <h3> {{ __('Created Parties') }}</h3> </div>
+       <div class="card-header"> <h3> {{ __('Audio Record') }}</h3> </div>
        <div class="card-body">
            @if ($errors->any())
                <ul class="alert alert-danger list-unstyled">
@@ -11,7 +11,7 @@
                    @endforeach
                </ul>
             @endif
-            <form method="POST" action="{{ route('admin.party.update', ['id' => $viewData['party']->id]) }}">
+            <form method="POST" action="{{ route('admin.party.audioRecord', ['id' => $viewData['party']->id]) }}">
                @csrf
                @method('PUT')
                <div class="row">
@@ -74,31 +74,41 @@
                         </div>
                         <label class="form-label">Party Audio:</label>
                         <div class="col-lg-12 col-md-3 col-sm-12">
-                            {{-- <input  type="file" name="audio_record" value="{{ $viewData['party']->audio_record }}"> --}}
-                            <input class="form-control" type="file" accept="audio/*"   name="audio_record"/>
+                            <button id="recordButton">Record</button>
+                            <button id="stopButton" disabled>Stop</button>
+                            <button type="submit">Record Audio</button>
                         </div>
-                        <div>
-
-                            <button type="submit" class="btn btn-primary"> {{ __('Edit') }}</button>
+                            {{-- <button type="submit" class="btn btn-primary"> {{ __('Edit') }}</button> --}}
 
                     </div>
 
            </form>
        </div>
    </div>
-    <div class="card mb-4">
-    <div class="card-header"> <h3> {{ __('Audio Word') }}</h3> </div>
-    <div class="card-body">
-   <audio id="player" controls>NN</audio> <a id="download">   {{ __('Save') }}   <button id="stop">   {{ __('Stop') }} </button></a>
-
-    </div>
 </div>
-{{-- <div class="card mb-4">
-    <div class="card-header"> <a href="{{ route('admin.party.audio',['id' => $viewData['party']->id]) }}">
-        <button class="btn btn-primary">
-        <i class="bi-pencil"><h5> {{ __('Audio Record') }} </h5></i>
-        </button></a>
-    </div> --}}
+<script>
+    var recordButton = document.getElementById('recordButton');
+    var stopButton = document.getElementById('stopButton');
+    var mediaRecorder;
 
+    recordButton.addEventListener('click', startRecording);
+    stopButton.addEventListener('click', stopRecording);
+
+    function startRecording() {
+        navigator.mediaDevices.getUserMedia({ audio: true })
+            .then(function(stream) {
+                mediaRecorder = new MediaRecorder(stream);
+                mediaRecorder.start();
+                recordButton.disabled = true;
+                stopButton.disabled = false;
+            });
+    }
+
+    function stopRecording() {
+        mediaRecorder.stop();
+        recordButton.disabled = false;
+        stopButton.disabled = true;
+    }
+</script>
 @endsection
 

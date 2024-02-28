@@ -76,6 +76,9 @@ Route::get('/party/{id}/edit','App\Http\Controllers\Admin\AdminPartyController@e
 Route::put('/party/{id}/update','App\Http\Controllers\Admin\AdminPartyController@update')->name("admin.party.update");
 Route::get('/party/{id}/delete','App\Http\Controllers\Admin\AdminPartyController@delete')->name("admin.party.delete");
 
+Route::get('/party/{id}/audio','App\Http\Controllers\Admin\AdminPartyController@audio')->name("admin.party.audio");
+Route::put('/party/{id}/audiorecord','App\Http\Controllers\Admin\AdminPartyController@audioRecord')->name("admin.party.audioRecord");
+
 Route::get('/products','App\Http\Controllers\ProductController@index')->name("products.index");
 Route::get('/products/{id}','App\Http\Controllers\ProductController@show')->name("products.show");
 Route::get('/cart','App\Http\Controllers\CartController@index')->name("cart.index");

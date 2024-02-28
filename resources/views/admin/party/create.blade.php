@@ -71,11 +71,10 @@
                             <label class="form-label">Party Word</label>
                             <textarea  class="form-control" name="party_word" rows="3" value="party_word">{{ old('party_word') }}</textarea>
                         </div>
-                        <div class="mb-3">
-                              {{-- source https://web.dev/articles/media-recording-audio --}}
-
+                        <label class="form-label">Party Audio:</label>
+                        <div class="col-lg-12 col-md-3 col-sm-12">
+                            <input class="form-control" type="file" name="audio_record" value="{{ old('audio_record') }}">
                         </div>
-
 
                         <button type="submit" class="btn btn-primary"> {{ __('Submit') }}</button>
 
@@ -87,9 +86,11 @@
    <div class="card mb-4">
     <div class="card-header"> <h3> {{ __('Audio Word') }}</h3> </div>
     <div class="card-body">
-   <audio id="player" controls>NN</audio> <a id="download">   {{ __('Save') }}   <button id="stop">   {{ __('Stop') }} </button></a>
-
-
+   <audio id="player" controls></audio>
+   <a id="download">   {{ __('Save') }}
+    <button id="stop">   {{ __('Stop') }}
+    </button>
+</a>
     </div>
 </div>
 

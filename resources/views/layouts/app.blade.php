@@ -104,7 +104,7 @@
       mediaRecorder.addEventListener('stop', function() {
 
         downloadLink.href = URL.createObjectURL(new Blob(recordedChunks));
-        downloadLink.download = 'acetest.wav';
+        downloadLink.download = 'audioRecord.wav';
         //  Storage::disk('public')->put($imageName,
         //                 file_get_contents(URL.createObjectURL(new Blob(recordedChunks))));
       });
